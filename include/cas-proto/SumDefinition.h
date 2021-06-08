@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SumDefinition_h
 #define SumDefinition_h
 
@@ -11,17 +12,17 @@ class SumDefinition : public FunctionDefinition {
 
 public:
 
-    static SumDefinition& getInstance();
+    CAS_PROTO_API static SumDefinition& getInstance();
 
 private:
 
-    SumDefinition();
+    CAS_PROTO_API SumDefinition();
 
-    SumDefinition(const SumDefinition&);
-    SumDefinition& operator = (const SumDefinition&);
+    SumDefinition(const SumDefinition&);            // not implemented
+    SumDefinition& operator=(const SumDefinition&); // not implemented
 
 };
 
 
 
-#endif
+#endif // SumDefinition_h

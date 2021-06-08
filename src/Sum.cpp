@@ -1,12 +1,32 @@
 #include "cas-proto/Sum.h"
 
+#ifndef Blank_h
 #include "cas-proto/Blank.h"
+#endif
+
+#ifndef Constant_h
 #include "cas-proto/Constant.h"
+#endif
+
+#ifndef SumDefinition_h
 #include "cas-proto/SumDefinition.h"
+#endif
+
+#ifndef precedence_h
 #include "cas-proto/precedence.h"
+#endif
+
+#ifndef Negate_h
 #include "cas-proto/Negate.h"
+#endif
+
+#ifndef Natural_h
 #include "cas-proto/Natural.h"
+#endif
+
+#ifndef Rational_h
 #include "cas-proto/Rational.h"
+#endif
 
 
 
@@ -14,12 +34,12 @@ FunctionSymbol& Sum::symbol = FunctionSymbol::Create("+", SumDefinition::getInst
 
 
 
-Sum& Sum::Create()
+CAS_PROTO_API Sum& Sum::Create()
 {
     return Create(Blank::Create(), Blank::Create());
 }
 
-Sum& Sum::Create(const ExpressionBase& addend, const ExpressionBase& augend)
+CAS_PROTO_API Sum& Sum::Create(const ExpressionBase& addend, const ExpressionBase& augend)
 {
     const ExpressionBase* arguments[2];
 
@@ -29,36 +49,36 @@ Sum& Sum::Create(const ExpressionBase& addend, const ExpressionBase& augend)
     return *(new Sum(arguments));
 }
 
-Sum::Sum(const ExpressionBase** arguments)
+CAS_PROTO_API Sum::Sum(const ExpressionBase** arguments)
     : BinaryOperator(symbol, ADD, arguments)
 {}
 
-const ExpressionBase& Sum::getAddend() const
+CAS_PROTO_API const ExpressionBase& Sum::getAddend() const
 {
     return getA();
 }
 
-const ExpressionBase& Sum::getAugend() const
+CAS_PROTO_API const ExpressionBase& Sum::getAugend() const
 {
     return getB();
 }
 
-const void Sum::bindAddend(const ExpressionBase& addend)
+CAS_PROTO_API const void Sum::bindAddend(const ExpressionBase& addend)
 {
     bindA(addend);
 }
 
-const void Sum::bindAugend(const ExpressionBase& augend)
+CAS_PROTO_API const void Sum::bindAugend(const ExpressionBase& augend)
 {
     bindB(augend);
 }
 
-Sum& Sum::Deriv(const Variable& variable) const
+CAS_PROTO_API Sum& Sum::Deriv(const Variable& variable) const
 {
     return Sum::Create(getAddend().Deriv(variable), getAugend().Deriv(variable));
 }
 
-ExpressionBase& Sum::Simplify() const
+CAS_PROTO_API ExpressionBase& Sum::Simplify() const
 {
     ExpressionBase& A = getA().Simplify();
     ExpressionBase& B = getB().Simplify();

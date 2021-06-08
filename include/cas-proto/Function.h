@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Function_h
 #define Function_h
 
@@ -25,43 +26,43 @@ class Function : public Expression<Function, FunctionSymbol, FunctionDefinition>
 
 public:
 
-    static Function& Create(const FunctionSymbol&, const ExpressionBase**);
-    static Function& Create(const std::string&, const ExpressionBase**);
-    static Function& Create(const ExpressionBase**);
+    CAS_PROTO_API static Function& Create(const FunctionSymbol&, const ExpressionBase**);
+    CAS_PROTO_API static Function& Create(const std::string&, const ExpressionBase**);
+    CAS_PROTO_API static Function& Create(const ExpressionBase**);
 
-    Function& Copy() const;
+    CAS_PROTO_API Function& Copy() const;
 
-    //void Accept(ExpressionVisitor&);
+    //CAS_PROTO_API void Accept(ExpressionVisitor&);
 
-    bool IsSame(const ExpressionBase&) const;
+    CAS_PROTO_API bool IsSame(const ExpressionBase&) const;
 
-    void Bind(const FunctionSymbol&);
+    CAS_PROTO_API void Bind(const FunctionSymbol&);
 
-    const ExpressionBase& getArgument(int) const;
-    void bindArgument(int i, const ExpressionBase&);
+    CAS_PROTO_API const ExpressionBase& getArgument(int) const;
+    CAS_PROTO_API void bindArgument(int i, const ExpressionBase&);
 
-    FunctionDefinition& getDefinition() const;
-    int getArity() const;
+    CAS_PROTO_API FunctionDefinition& getDefinition() const;
+    CAS_PROTO_API int getArity() const;
 
-    Function& Deriv(const Variable&) const;
+    CAS_PROTO_API Function& Deriv(const Variable&) const;
 
-    Function& Substitute(const Variable&, const ExpressionBase&) const;
+    CAS_PROTO_API Function& Substitute(const Variable&, const ExpressionBase&) const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    //Function& Limit(const Variable&, const Constant&);
+    //CAS_PROTO_API Function& Limit(const Variable&, const Constant&);
 
 protected:
 
-    Function(const FunctionSymbol&);
-    Function(const FunctionSymbol&, const ExpressionBase**);
+    CAS_PROTO_API explicit Function(const FunctionSymbol&);
+    CAS_PROTO_API Function(const FunctionSymbol&, const ExpressionBase**);
 
-    ~Function();
+    CAS_PROTO_API virtual ~Function();
 
 private:
 
-    Function(const Function&); // not implememented
-    Function& operator = (const Function&); // not implemented
+    Function(const Function&);            // not implemented
+    Function& operator=(const Function&); // not implemented
 
     const ExpressionBase** arguments;
 
@@ -113,4 +114,4 @@ private:
 
 
 
-#endif
+#endif // Function_h

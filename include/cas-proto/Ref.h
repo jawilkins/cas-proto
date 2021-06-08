@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Ref_h
 #define Ref_h
 
@@ -46,4 +47,4 @@ private:
 
 
 
-#endif
+#endif // Ref_h

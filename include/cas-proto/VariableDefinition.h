@@ -1,3 +1,4 @@
+#pragma once
 #ifndef VariableDefinition_h
 #define VariableDefinition_h
 
@@ -11,14 +12,14 @@ class VariableDefinition : public Definition {
 
 public:
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    static VariableDefinition undef;
+    CAS_PROTO_API static VariableDefinition undef;
 
-    static std::string genLexeme();
+    CAS_PROTO_API static std::string genLexeme();
 
 };
 
 
 
-#endif
+#endif // VariableDefinition_h

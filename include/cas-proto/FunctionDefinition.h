@@ -1,3 +1,4 @@
+#pragma once
 #ifndef FunctionDefinition_h
 #define FunctionDefinition_h
 
@@ -11,15 +12,15 @@ class FunctionDefinition : public Definition {
 
 public:
 
-    explicit FunctionDefinition(int);
+    CAS_PROTO_API explicit FunctionDefinition(int);
 
-    int getArity() const;
+    CAS_PROTO_API int getArity() const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    static FunctionDefinition undef;
+    CAS_PROTO_API static FunctionDefinition undef;
 
-    static std::string genLexeme();
+    CAS_PROTO_API static std::string genLexeme();
 
 private:
 
@@ -29,4 +30,4 @@ private:
 
 
 
-#endif
+#endif // FunctionDefinition_h

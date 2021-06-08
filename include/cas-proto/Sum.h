@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Sum_h
 #define Sum_h
 
@@ -11,27 +12,27 @@ class Sum : public BinaryOperator {
 
 public:
 
-    static Sum& Create();
-    static Sum& Create(const ExpressionBase&, const ExpressionBase&);
+    CAS_PROTO_API static Sum& Create();
+    CAS_PROTO_API static Sum& Create(const ExpressionBase&, const ExpressionBase&);
 
-    const ExpressionBase& getAddend() const;
-    const ExpressionBase& getAugend() const;
+    CAS_PROTO_API const ExpressionBase& getAddend() const;
+    CAS_PROTO_API const ExpressionBase& getAugend() const;
 
-    const void bindAddend(const ExpressionBase&);
-    const void bindAugend(const ExpressionBase&);
+    CAS_PROTO_API const void bindAddend(const ExpressionBase&);
+    CAS_PROTO_API const void bindAugend(const ExpressionBase&);
 
-    Sum& Deriv(const Variable& variable) const;
+    CAS_PROTO_API Sum& Deriv(const Variable& variable) const;
 
-    ExpressionBase& Simplify() const;
+    CAS_PROTO_API ExpressionBase& Simplify() const;
 
 protected:
 
-    Sum(const ExpressionBase**);
+    CAS_PROTO_API explicit Sum(const ExpressionBase**);
 
 private:
 
-    Sum(const Sum&); // not implememented
-    Sum& operator = (const Sum&); // not implemented
+    Sum(const Sum&);            // not implemented
+    Sum& operator=(const Sum&); // not implemented
 
     static FunctionSymbol& symbol;
 
@@ -39,4 +40,4 @@ private:
 
 
 
-#endif
+#endif // Sum_h

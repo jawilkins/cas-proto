@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Definition_h
 #define Definition_h
 
@@ -11,12 +12,12 @@ class Definition : public Object {
 
 public:
 
-    virtual std::string toString() const = 0;
+    CAS_PROTO_API virtual std::string toString() const = 0;
 
-    bool IsSame(const Definition&) const;
+    CAS_PROTO_API bool IsSame(const Definition&) const;
 
 };
 
 
 
-#endif
+#endif // Definition_h

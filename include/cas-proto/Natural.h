@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Natural_h
 #define Natural_h
 
@@ -11,24 +12,24 @@ class Natural : public Constant {
 
 public:
 
-    static Natural& Create(int);
+    CAS_PROTO_API static Natural& Create(int);
 
-    Natural& Copy() const;
+    CAS_PROTO_API Natural& Copy() const;
 
-    Natural& Deriv(const Variable&) const;
+    CAS_PROTO_API Natural& Deriv(const Variable&) const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    int get() const;
+    CAS_PROTO_API int get() const;
 
 protected:
 
-    Natural(int n);
+    CAS_PROTO_API Natural(int n);
 
 private:
 
-    Natural(const Natural&); // not implemented
-    Natural& operator = (const Natural&); // not implemented
+    Natural(const Natural&);            // not implemented
+    Natural& operator=(const Natural&); // not implemented
 
     int n;
 
@@ -36,4 +37,4 @@ private:
 
 
 
-#endif
+#endif // Natural_h

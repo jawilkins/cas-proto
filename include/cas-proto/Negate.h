@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Negate_h
 #define Negate_h
 
@@ -11,21 +12,21 @@ class Negate : public UnaryOperator {
 
 public:
 
-    static Negate& Create();
-    static Negate& Create(const ExpressionBase&);
+    CAS_PROTO_API static Negate& Create();
+    CAS_PROTO_API static Negate& Create(const ExpressionBase&);
 
-    Negate& Deriv(const Variable& variable) const;
+    CAS_PROTO_API Negate& Deriv(const Variable& variable) const;
 
-    ExpressionBase& Simplify() const;
+    CAS_PROTO_API ExpressionBase& Simplify() const;
 
 protected:
 
-    Negate(const ExpressionBase**);
+    CAS_PROTO_API explicit Negate(const ExpressionBase**);
 
 private:
 
-    Negate(const Negate&); // not implememented
-    Negate& operator = (const Negate&); // not implemented
+    CAS_PROTO_API Negate(const Negate&);            // not implemented
+    CAS_PROTO_API Negate& operator=(const Negate&); // not implemented
 
     static FunctionSymbol& symbol;
 
@@ -33,4 +34,4 @@ private:
 
 
 
-#endif
+#endif // Negate_h

@@ -1,6 +1,6 @@
 #include "cas-proto/ExpressionBase.h"
 
-#include <assert.h>
+#include <cassert>
 
 
 
@@ -8,23 +8,22 @@ Stat ExpressionBase::stat("Expression");
 
 
 
-ExpressionBase::ExpressionBase()
+CAS_PROTO_API ExpressionBase::ExpressionBase()
 {
     stat.Bump();
 }
 
-ExpressionBase::~ExpressionBase()
+CAS_PROTO_API ExpressionBase::~ExpressionBase()
 {
     stat.Unbump();
 }
 
-ExpressionBase& ExpressionBase::Simplify() const
+CAS_PROTO_API ExpressionBase& ExpressionBase::Simplify() const
 {
     return Copy();
 }
 
-ExpressionBase& ExpressionBase::Substitute(const Variable&, const ExpressionBase&) const
+CAS_PROTO_API ExpressionBase& ExpressionBase::Substitute(const Variable&, const ExpressionBase&) const
 {
     return Copy();
 }
-

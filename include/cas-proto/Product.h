@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Product_h
 #define Product_h
 
@@ -11,31 +12,31 @@ class Product : public BinaryOperator {
 
 public:
 
-    static Product& Create();
-    static Product& Create(const ExpressionBase&, const ExpressionBase&);
+    CAS_PROTO_API static Product& Create();
+    CAS_PROTO_API static Product& Create(const ExpressionBase&, const ExpressionBase&);
 
-    const ExpressionBase& getMultiplier() const;
-    const ExpressionBase& getMultiplicand() const;
+    CAS_PROTO_API const ExpressionBase& getMultiplier() const;
+    CAS_PROTO_API const ExpressionBase& getMultiplicand() const;
 
-    const void bindMultiplier(const ExpressionBase&);
-    const void bindMultiplicand(const ExpressionBase&);
+    CAS_PROTO_API const void bindMultiplier(const ExpressionBase&);
+    CAS_PROTO_API const void bindMultiplicand(const ExpressionBase&);
 
-    Sum& Deriv(const Variable& variable) const;
+    CAS_PROTO_API Sum& Deriv(const Variable& variable) const;
 
-    ExpressionBase& Simplify() const;
+    CAS_PROTO_API ExpressionBase& Simplify() const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    ExpressionBase& Multiply() const;
+    CAS_PROTO_API ExpressionBase& Multiply() const;
 
 protected:
 
-    Product(const ExpressionBase**);
+    CAS_PROTO_API explicit Product(const ExpressionBase**);
 
 private:
 
-    Product(const Product&); // not implememented
-    Product& operator = (const Product&); // not implemented
+    Product(const Product&);            // not implemented
+    Product& operator=(const Product&); // not implemented
 
     static FunctionSymbol& symbol;
 
@@ -43,4 +44,4 @@ private:
 
 
 
-#endif
+#endif // Product_h

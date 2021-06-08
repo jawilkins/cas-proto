@@ -1,12 +1,12 @@
 #include "cas-proto/NcBinaryOperator.h"
 
+#ifndef Blank_h
 #include "cas-proto/Blank.h"
-
-using std::string;
-
+#endif
 
 
-NcBinaryOperator& NcBinaryOperator::Create(const FunctionSymbol& symbol, int precedence, const ExpressionBase& a, const ExpressionBase& b)
+
+CAS_PROTO_API NcBinaryOperator& NcBinaryOperator::Create(const FunctionSymbol& symbol, int precedence, const ExpressionBase& a, const ExpressionBase& b)
 {
     assert(symbol.getDefinition().IsSame(FunctionDefinition::undef) || symbol.getDefinition().getArity() == 2);
 
@@ -18,40 +18,40 @@ NcBinaryOperator& NcBinaryOperator::Create(const FunctionSymbol& symbol, int pre
     return *(new NcBinaryOperator(symbol, precedence, arguments));
 }
 
-NcBinaryOperator& NcBinaryOperator::Create(const FunctionSymbol& symbol, int precedence)
+CAS_PROTO_API NcBinaryOperator& NcBinaryOperator::Create(const FunctionSymbol& symbol, int precedence)
 {
     assert(symbol.getDefinition().IsSame(FunctionDefinition::undef) || symbol.getDefinition().getArity() == 2);
 
     return Create(symbol, precedence, Blank::Create(), Blank::Create());
 }
 
-NcBinaryOperator& NcBinaryOperator::Create(const std::string& lexeme, int precedence, const ExpressionBase& a, const ExpressionBase& b)
+CAS_PROTO_API NcBinaryOperator& NcBinaryOperator::Create(const std::string& lexeme, int precedence, const ExpressionBase& a, const ExpressionBase& b)
 {
     return Create(FunctionSymbol::Create(lexeme), precedence, a, b);
 }
 
-NcBinaryOperator& NcBinaryOperator::Create(const std::string& lexeme, int precedence)
+CAS_PROTO_API NcBinaryOperator& NcBinaryOperator::Create(const std::string& lexeme, int precedence)
 {
     return Create(FunctionSymbol::Create(lexeme), precedence, Blank::Create(), Blank::Create());
 }
 
-NcBinaryOperator& NcBinaryOperator::Create(int precedence)
+CAS_PROTO_API NcBinaryOperator& NcBinaryOperator::Create(int precedence)
 {
     return Create(FunctionSymbol::Create(), precedence, Blank::Create(), Blank::Create());
 }
 
-NcBinaryOperator::NcBinaryOperator(const FunctionSymbol& symbol, int precedence, const ExpressionBase** arguments)
+CAS_PROTO_API NcBinaryOperator::NcBinaryOperator(const FunctionSymbol& symbol, int precedence, const ExpressionBase** arguments)
     : BinaryOperator(symbol, precedence, arguments)
 {}
 
-//void NcBinaryOperator::Accept(ExpressionVisitor& visitor)
+//CAS_PROTO_API void NcBinaryOperator::Accept(ExpressionVisitor& visitor)
 //{
 //    visitor.visit(*this);
 //}
 
-string NcBinaryOperator::toString() const
+CAS_PROTO_API std::string NcBinaryOperator::toString() const
 {
-    string rv;
+    std::string rv;
 
     const BinaryOperator* a = dynamic_cast<const BinaryOperator*>(&getA());
 
@@ -76,7 +76,7 @@ string NcBinaryOperator::toString() const
     return rv;
 }
 
-NcBinaryOperator& NcBinaryOperator::Copy() const
+CAS_PROTO_API NcBinaryOperator& NcBinaryOperator::Copy() const
 {
     return Create(getSymbol(), getPrecedence(), getA().Copy(), getB().Copy());
 }

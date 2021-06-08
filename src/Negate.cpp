@@ -1,9 +1,20 @@
 #include "cas-proto/Negate.h"
 
+#ifndef Blank_h
 #include "cas-proto/Blank.h"
+#endif
+
+#ifndef Constant_h
 #include "cas-proto/Constant.h"
+#endif
+
+#ifndef NegateDefinition_h
 #include "cas-proto/NegateDefinition.h"
+#endif
+
+#ifndef Natural_h
 #include "cas-proto/Natural.h"
+#endif
 
 
 
@@ -11,12 +22,12 @@ FunctionSymbol& Negate::symbol = FunctionSymbol::Create("-", NegateDefinition::g
 
 
 
-Negate& Negate::Create()
+CAS_PROTO_API Negate& Negate::Create()
 {
     return Create(Blank::Create());
 }
 
-Negate& Negate::Create(const ExpressionBase& a)
+CAS_PROTO_API Negate& Negate::Create(const ExpressionBase& a)
 {
     const ExpressionBase* arguments[1];
 
@@ -25,17 +36,17 @@ Negate& Negate::Create(const ExpressionBase& a)
     return *(new Negate(arguments));
 }
 
-Negate::Negate(const ExpressionBase** arguments)
+CAS_PROTO_API Negate::Negate(const ExpressionBase** arguments)
     : UnaryOperator(symbol, arguments)
 {}
 
-Negate& Negate::Deriv(const Variable& variable) const
+CAS_PROTO_API Negate& Negate::Deriv(const Variable& variable) const
 {
     assert(false);
     throw 0;
 }
 
-ExpressionBase& Negate::Simplify() const
+CAS_PROTO_API ExpressionBase& Negate::Simplify() const
 {
     ExpressionBase& A = get().Simplify();
 

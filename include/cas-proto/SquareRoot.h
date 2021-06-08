@@ -1,5 +1,6 @@
-//#ifndef SquareRoot_h
-//#define SquareRoot_h
+#pragma once
+#ifndef SquareRoot_h
+#define SquareRoot_h
 //
 //#ifndef UnaryOperator_h
 //#include "UnaryOperator.h"
@@ -41,4 +42,4 @@
 //
 //
 //
-//#endif
+#endif // SquareRoot_h

@@ -13,18 +13,18 @@ class SymbolBase : public Object {
 
 public:
 
-    virtual Definition& getDefinition() const = 0;
+    CAS_PROTO_API virtual Definition& getDefinition() const = 0;
 
-    const std::string& getLexeme() const;
+    CAS_PROTO_API const std::string& getLexeme() const;
 
 protected:
 
-    SymbolBase(const std::string&);
+    CAS_PROTO_API SymbolBase(const std::string&);
 
 private:
 
-    SymbolBase(const Object&); // not implemented
-    SymbolBase& operator = (const SymbolBase&); // not implemented
+    SymbolBase(const Object&);                // not implemented
+    SymbolBase& operator=(const SymbolBase&); // not implemented
 
     const std::string lexeme;
 
@@ -32,4 +32,4 @@ private:
 
 
 
-#endif
+#endif //' SymbolBase_h

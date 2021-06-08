@@ -2,11 +2,11 @@
 
 
 
-TwoDefinition::TwoDefinition()
+CAS_PROTO_API TwoDefinition::TwoDefinition()
     : ConstantDefinition()
 {}
 
-TwoDefinition& TwoDefinition::getInstance()
+CAS_PROTO_API TwoDefinition& TwoDefinition::getInstance()
 {
     static TwoDefinition* instance = 0;
 

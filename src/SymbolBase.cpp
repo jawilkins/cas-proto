@@ -1,14 +1,12 @@
 #include "cas-proto/SymbolBase.h"
 
-using std::string;
 
 
-
-const string& SymbolBase::getLexeme() const
+CAS_PROTO_API const std::string& SymbolBase::getLexeme() const
 {
     return lexeme;
 }
 
-SymbolBase::SymbolBase(const string& lexeme)
+CAS_PROTO_API SymbolBase::SymbolBase(const std::string& lexeme)
     : lexeme(lexeme)
 {}

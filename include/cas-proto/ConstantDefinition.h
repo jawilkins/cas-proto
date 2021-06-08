@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ConstantDefinition_h
 #define ConstantDefinition_h
 
@@ -11,14 +12,14 @@ class ConstantDefinition : public Definition {
 
 public:
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    static ConstantDefinition undef;
+    CAS_PROTO_API static ConstantDefinition undef;
 
-    static std::string genLexeme();
+    CAS_PROTO_API static std::string genLexeme();
 
 };
 
 
 
-#endif
+#endif // ConstantDefinition_h

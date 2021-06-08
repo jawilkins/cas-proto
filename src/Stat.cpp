@@ -1,21 +1,19 @@
 #include "cas-proto/Stat.h"
 
 #include <iostream>
-using std::cout;
-using std::endl;
 
-#include <assert.h>
+#include <cassert>
 
 
 
-Stat::Stat(const std::string& name)
+CAS_PROTO_API Stat::Stat(const std::string& name)
     : name(name)
     , created(0)
     , deleted(0)
     , count(0)
 {}
 
-void Stat::Bump()
+CAS_PROTO_API void Stat::Bump()
 {
     assert(created >= deleted);
     assert(count == created - deleted);
@@ -24,7 +22,7 @@ void Stat::Bump()
     count++;
 }
 
-void Stat::Unbump()
+CAS_PROTO_API void Stat::Unbump()
 {
     assert(deleted < created);
     assert(count > 0);
@@ -34,10 +32,10 @@ void Stat::Unbump()
     count--;
 }
 
-void Stat::Report()
+CAS_PROTO_API void Stat::Report()
 {
-    cout << "Name:    " << name    << endl;
-    cout << "Created: " << created << endl;
-    cout << "Deleted: " << deleted << endl;
-    cout << "Count:   " << count   << endl;
+    std::cout << "Name:    " << name    << '\n'
+              << "Created: " << created << '\n'
+              << "Deleted: " << deleted << '\n'
+              << "Count:   " << count   << '\n';
 }

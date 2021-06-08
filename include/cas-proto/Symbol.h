@@ -29,8 +29,8 @@ protected:
 
 private:
 
-    Symbol<T>(const Symbol&); // not implemented
-    Symbol<T>& operator = (const Symbol<T>&); // not implemented
+    Symbol<T>(const Symbol&);                // not implemented
+    Symbol<T>& operator=(const Symbol<T>&); // not implemented
 
     T* definition_ptr;
 
@@ -42,4 +42,4 @@ private:
 
 
 
-#endif
+#endif // Symbol_h

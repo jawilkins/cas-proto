@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Formula_h
 #define Formula_h
 
@@ -5,21 +6,25 @@
 #include "Function.h"
 #endif
 
+
+
 class Formula : public Function {
 
 public:
 
-    Formula(int arity, Expression[]);
-    Formula(const Symbol&, Expression[]);
+    CAS_PROTO_API Formula(int arity, Expression[]);
+    CAS_PROTO_API Formula(const Symbol&, Expression[]);
 
-    ~Formula();
+    CAS_PROTO_API virtual ~Formula();
 
-    Formula* Substitute(Variable*, Formula*);
-    Formula* Substitute(const Symbol&, Variable*, Formula*);
+    CAS_PROTO_API Formula* Substitute(Variable*, Formula*);
+    CAS_PROTO_API Formula* Substitute(const Symbol&, Variable*, Formula*);
 
-    Formula* Solve(Variable&);
-    Formula* Solve(const Symbol&, const Symbol&, Variable&);
+    CAS_PROTO_API Formula* Solve(Variable&);
+    CAS_PROTO_API Formula* Solve(const Symbol&, const Symbol&, Variable&);
 
 };
 
-#endif
+
+
+#endif // Formula_h

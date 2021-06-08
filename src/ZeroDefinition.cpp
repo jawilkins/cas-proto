@@ -2,11 +2,11 @@
 
 
 
-ZeroDefinition::ZeroDefinition()
+CAS_PROTO_API ZeroDefinition::ZeroDefinition()
     : ConstantDefinition()
 {}
 
-ZeroDefinition& ZeroDefinition::getInstance()
+CAS_PROTO_API ZeroDefinition& ZeroDefinition::getInstance()
 {
     static ZeroDefinition* instance = 0;
 

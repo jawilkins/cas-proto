@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SquareRootDefinition_h
 #define SquareRootDefinition_h
 
@@ -11,17 +12,17 @@ class SquareRootDefinition : public FunctionDefinition {
 
 public:
 
-    static SquareRootDefinition& getInstance();
+    CAS_PROTO_API static SquareRootDefinition& getInstance();
 
 private:
 
-    SquareRootDefinition();
+    CAS_PROTO_API SquareRootDefinition();
 
-    SquareRootDefinition(const SquareRootDefinition&);
-    SquareRootDefinition& operator = (const SquareRootDefinition&);
+    SquareRootDefinition(const SquareRootDefinition&);            // not implemented
+    SquareRootDefinition& operator=(const SquareRootDefinition&); // not implemented
 
 };
 
 
 
-#endif
+#endif // SquareRootDefinition_h

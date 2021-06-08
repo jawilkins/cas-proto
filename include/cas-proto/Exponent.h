@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Exponent_h
 #define Exponent_h
 
@@ -11,34 +12,34 @@ class Exponent : public BinaryOperator {
 
 public:
 
-    static Exponent& Create();
-    static Exponent& Create(const ExpressionBase&, const ExpressionBase&);
+    CAS_PROTO_API static Exponent& Create();
+    CAS_PROTO_API static Exponent& Create(const ExpressionBase&, const ExpressionBase&);
 
-    static Exponent& Square(const ExpressionBase&);
-    static Exponent& Root(const ExpressionBase&, int);
-    static Exponent& SquareRoot(const ExpressionBase&);
-    static Exponent& CubeRoot(const ExpressionBase&);
+    CAS_PROTO_API static Exponent& Square(const ExpressionBase&);
+    CAS_PROTO_API static Exponent& Root(const ExpressionBase&, int);
+    CAS_PROTO_API static Exponent& SquareRoot(const ExpressionBase&);
+    CAS_PROTO_API static Exponent& CubeRoot(const ExpressionBase&);
 
-    const ExpressionBase& getBase() const;
-    const ExpressionBase& getExponent() const;
+    CAS_PROTO_API const ExpressionBase& getBase() const;
+    CAS_PROTO_API const ExpressionBase& getExponent() const;
 
-    const void bindBase(const ExpressionBase&);
-    const void bindExponent(const ExpressionBase&);
+    CAS_PROTO_API const void bindBase(const ExpressionBase&);
+    CAS_PROTO_API const void bindExponent(const ExpressionBase&);
 
-    Product& Deriv(const Variable& variable) const;
+    CAS_PROTO_API Product& Deriv(const Variable& variable) const;
 
-    ExpressionBase& Simplify() const;
+    CAS_PROTO_API ExpressionBase& Simplify() const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
 protected:
 
-    Exponent(const ExpressionBase**);
+    CAS_PROTO_API explicit Exponent(const ExpressionBase**);
 
 private:
 
-    Exponent(const Exponent&); // not implememented
-    Exponent& operator = (const Exponent&); // not implemented
+    Exponent(const Exponent&);            // not implemented
+    Exponent& operator=(const Exponent&); // not implemented
 
     static FunctionSymbol& symbol;
 
@@ -46,4 +47,4 @@ private:
 
 
 
-#endif
+#endif // Exponent_h

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Object_h
 #define Object_h
 
@@ -11,19 +12,19 @@ class Object {
 
 public:
 
-    void Acquire() const;
-    void Release() const;
+    CAS_PROTO_API void Acquire() const;
+    CAS_PROTO_API void Release() const;
 
 protected:
 
-    Object();
+    CAS_PROTO_API Object();
 
-    virtual ~Object();
+    CAS_PROTO_API virtual ~Object();
 
 private:
 
-    Object(const Object&); // not implemented
-    Object& operator = (const Object&); // not implemented
+    Object(const Object&);            // not implemented
+    Object& operator=(const Object&); // not implemented
 
     mutable int refcount;
 
@@ -34,4 +35,4 @@ private:
 
 
 
-#endif
+#endif // Object_h

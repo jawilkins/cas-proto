@@ -1,13 +1,36 @@
 #include "cas-proto/Product.h"
 
+#ifndef Blank_h
 #include "cas-proto/Blank.h"
+#endif
+
+#ifndef Constant_h
 #include "cas-proto/Constant.h"
+#endif
+
+#ifndef ProductDefinition_h
 #include "cas-proto/ProductDefinition.h"
+#endif
+
+#ifndef precedence_h
 #include "cas-proto/precedence.h"
+#endif
+
+#ifndef Exponent_h
 #include "cas-proto/Exponent.h"
+#endif
+
+#ifndef Negate_h
 #include "cas-proto/Negate.h"
+#endif
+
+#ifndef Natural_h
 #include "cas-proto/Natural.h"
+#endif
+
+#ifndef Variable_h
 #include "cas-proto/Variable.h"
+#endif
 
 using std::string;
 
@@ -17,12 +40,12 @@ FunctionSymbol& Product::symbol = FunctionSymbol::Create("\xFA", ProductDefiniti
 
 
 
-Product& Product::Create()
+CAS_PROTO_API Product& Product::Create()
 {
     return Create(Blank::Create(), Blank::Create());
 }
 
-Product& Product::Create(const ExpressionBase& multiplier, const ExpressionBase& multiplicand)
+CAS_PROTO_API Product& Product::Create(const ExpressionBase& multiplier, const ExpressionBase& multiplicand)
 {
     const ExpressionBase* arguments[2];
 
@@ -32,36 +55,36 @@ Product& Product::Create(const ExpressionBase& multiplier, const ExpressionBase&
     return *(new Product(arguments));
 }
 
-Product::Product(const ExpressionBase** arguments)
+CAS_PROTO_API Product::Product(const ExpressionBase** arguments)
     : BinaryOperator(symbol, MUL, arguments)
 {}
 
-const ExpressionBase& Product::getMultiplier() const
+CAS_PROTO_API const ExpressionBase& Product::getMultiplier() const
 {
     return getA();
 }
 
-const ExpressionBase& Product::getMultiplicand() const
+CAS_PROTO_API const ExpressionBase& Product::getMultiplicand() const
 {
     return getB();
 }
 
-const void Product::bindMultiplier(const ExpressionBase& multiplier)
+CAS_PROTO_API const void Product::bindMultiplier(const ExpressionBase& multiplier)
 {
     bindA(multiplier);
 }
 
-const void Product::bindMultiplicand(const ExpressionBase& multiplicand)
+CAS_PROTO_API const void Product::bindMultiplicand(const ExpressionBase& multiplicand)
 {
     bindB(multiplicand);
 }
 
-Sum& Product::Deriv(const Variable& variable) const
+CAS_PROTO_API Sum& Product::Deriv(const Variable& variable) const
 {
     return Sum::Create(Product::Create(getA().Copy(), getB().Deriv(variable)), Product::Create(getB().Copy(), getA().Deriv(variable)));
 }
 
-ExpressionBase& Product::Simplify() const
+CAS_PROTO_API ExpressionBase& Product::Simplify() const
 {
     ExpressionBase& A = getA().Simplify();
     ExpressionBase& B = getB().Simplify();
@@ -100,7 +123,7 @@ ExpressionBase& Product::Simplify() const
     }
 }
 
-string Product::toString() const
+CAS_PROTO_API string Product::toString() const
 {
     string rv;
 

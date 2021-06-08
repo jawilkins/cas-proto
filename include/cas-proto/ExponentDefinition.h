@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ExponentDefinition_h
 #define ExponentDefinition_h
 
@@ -11,17 +12,17 @@ class ExponentDefinition : public FunctionDefinition {
 
 public:
 
-    static ExponentDefinition& getInstance();
+    CAS_PROTO_API static ExponentDefinition& getInstance();
 
 private:
 
-    ExponentDefinition();
+    CAS_PROTO_API ExponentDefinition();
 
-    ExponentDefinition(const ExponentDefinition&); // not implemented
-    ExponentDefinition& operator = (const ExponentDefinition&); // not implemented
+    ExponentDefinition(const ExponentDefinition&);            // not implemented
+    ExponentDefinition& operator=(const ExponentDefinition&); // not implemented
 
 };
 
 
 
-#endif
+#endif // ExponentDefinition_h

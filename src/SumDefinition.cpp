@@ -2,11 +2,11 @@
 
 
 
-SumDefinition::SumDefinition()
+CAS_PROTO_API SumDefinition::SumDefinition()
     : FunctionDefinition(2)
 {}
 
-SumDefinition& SumDefinition::getInstance()
+CAS_PROTO_API SumDefinition& SumDefinition::getInstance()
 {
     static SumDefinition* instance = 0;
 

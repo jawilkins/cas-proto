@@ -1,3 +1,4 @@
+#pragma once
 #ifndef VariableSymbol_h
 #define VariableSymbol_h
 

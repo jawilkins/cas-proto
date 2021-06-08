@@ -11,35 +11,35 @@ class UnaryOperator : public Function {
 
 public:
 
-    static UnaryOperator& Create(const FunctionSymbol&, const ExpressionBase&);
-    static UnaryOperator& Create(const FunctionSymbol&);
-    static UnaryOperator& Create(const std::string&, const ExpressionBase&);
-    static UnaryOperator& Create(const std::string&);
-    static UnaryOperator& Create();
+    CAS_PROTO_API static UnaryOperator& Create(const FunctionSymbol&, const ExpressionBase&);
+    CAS_PROTO_API static UnaryOperator& Create(const FunctionSymbol&);
+    CAS_PROTO_API static UnaryOperator& Create(const std::string&, const ExpressionBase&);
+    CAS_PROTO_API static UnaryOperator& Create(const std::string&);
+    CAS_PROTO_API static UnaryOperator& Create();
 
-    const ExpressionBase& get() const;
+    CAS_PROTO_API const ExpressionBase& get() const;
 
-    const void bind(const ExpressionBase&);
+    CAS_PROTO_API const void bind(const ExpressionBase&);
 
-    UnaryOperator& Copy() const;
+    CAS_PROTO_API UnaryOperator& Copy() const;
 
-    //void Accept(ExpressionVisitor&);
+    //CAS_PROTO_API void Accept(ExpressionVisitor&);
 
-    UnaryOperator& Substitute(const Variable&, const ExpressionBase&) const;
+    CAS_PROTO_API UnaryOperator& Substitute(const Variable&, const ExpressionBase&) const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
 protected:
 
-    UnaryOperator(const FunctionSymbol&, const ExpressionBase**);
+    CAS_PROTO_API UnaryOperator(const FunctionSymbol&, const ExpressionBase**);
 
 private:
 
-    UnaryOperator(const UnaryOperator&); // not implememented
-    UnaryOperator& operator = (const UnaryOperator&); // not implemented
+    UnaryOperator(const UnaryOperator&);            // not implemented
+    UnaryOperator& operator=(const UnaryOperator&); // not implemented
 
 };
 
 
 
-#endif
+#endif // UnaryOperator_h

@@ -1,6 +1,6 @@
 #include "cas-proto/Object.h"
 
-#include <assert.h>
+#include <cassert>
 
 
 
@@ -9,27 +9,27 @@ Stat Object::stat("Object");
 
 
 
-Object::Object()
+CAS_PROTO_API Object::Object()
     : refcount(0)
 {
     stat.Bump();
 }
 
-Object::~Object()
+CAS_PROTO_API Object::~Object()
 {
     assert(refcount == 0);
 
     stat.Unbump();
 }
 
-void Object::Acquire() const
+CAS_PROTO_API void Object::Acquire() const
 {
     refs.Bump();
 
     refcount++;
 }
 
-void Object::Release() const
+CAS_PROTO_API void Object::Release() const
 {
     assert(refcount > 0);
 

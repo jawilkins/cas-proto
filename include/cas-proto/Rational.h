@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Rational_h
 #define Rational_h
 
@@ -11,27 +12,27 @@ class Rational : public Constant {
 
 public:
 
-    static Rational& Create(int, int);
+    CAS_PROTO_API static Rational& Create(int, int);
 
-    Rational& Copy() const;
+    CAS_PROTO_API Rational& Copy() const;
 
-    Natural& Deriv(const Variable&) const;
+    CAS_PROTO_API Natural& Deriv(const Variable&) const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    int getNumerator() const;
-    int getDenominator() const;
+    CAS_PROTO_API int getNumerator() const;
+    CAS_PROTO_API int getDenominator() const;
 
-    ExpressionBase& Simplify() const;
+    CAS_PROTO_API ExpressionBase& Simplify() const;
 
 protected:
 
-    Rational(int, int);
+    CAS_PROTO_API Rational(int, int);
 
 private:
 
-    Rational(const Rational&); // not implemented
-    Rational& operator = (const Rational&); // not implemented
+    Rational(const Rational&);            // not implemented
+    Rational& operator=(const Rational&); // not implemented
 
     int n, d;
 
@@ -39,4 +40,4 @@ private:
 
 
 
-#endif
+#endif // Rational_h

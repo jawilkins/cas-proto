@@ -2,11 +2,11 @@
 
 
 
-ExponentDefinition::ExponentDefinition()
+CAS_PROTO_API ExponentDefinition::ExponentDefinition()
     : FunctionDefinition(2)
 {}
 
-ExponentDefinition& ExponentDefinition::getInstance()
+CAS_PROTO_API ExponentDefinition& ExponentDefinition::getInstance()
 {
     static ExponentDefinition* instance = 0;
 

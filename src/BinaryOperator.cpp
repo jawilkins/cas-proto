@@ -1,12 +1,12 @@
 #include "cas-proto/BinaryOperator.h"
 
+#ifndef Blank_h
 #include "cas-proto/Blank.h"
-
-using std::string;
-
+#endif
 
 
-BinaryOperator& BinaryOperator::Create(const FunctionSymbol& symbol, int precedence, const ExpressionBase& a, const ExpressionBase& b)
+
+CAS_PROTO_API BinaryOperator& BinaryOperator::Create(const FunctionSymbol& symbol, int precedence, const ExpressionBase& a, const ExpressionBase& b)
 {
     assert(symbol.getDefinition().IsSame(FunctionDefinition::undef) || symbol.getDefinition().getArity() == 2);
 
@@ -18,61 +18,61 @@ BinaryOperator& BinaryOperator::Create(const FunctionSymbol& symbol, int precede
     return *(new BinaryOperator(symbol, precedence, arguments));
 }
 
-BinaryOperator& BinaryOperator::Create(const FunctionSymbol& symbol, int precedence)
+CAS_PROTO_API BinaryOperator& BinaryOperator::Create(const FunctionSymbol& symbol, int precedence)
 {
     assert(symbol.getDefinition().IsSame(FunctionDefinition::undef) || symbol.getDefinition().getArity() == 2);
 
     return Create(symbol, precedence, Blank::Create(), Blank::Create());
 }
 
-BinaryOperator& BinaryOperator::Create(const std::string& lexeme, int precedence, const ExpressionBase& a, const ExpressionBase& b)
+CAS_PROTO_API BinaryOperator& BinaryOperator::Create(const std::string& lexeme, int precedence, const ExpressionBase& a, const ExpressionBase& b)
 {
     return Create(FunctionSymbol::Create(lexeme), precedence, a, b);
 }
 
-BinaryOperator& BinaryOperator::Create(const std::string& lexeme, int precedence)
+CAS_PROTO_API BinaryOperator& BinaryOperator::Create(const std::string& lexeme, int precedence)
 {
     return Create(FunctionSymbol::Create(lexeme), precedence, Blank::Create(), Blank::Create());
 }
 
-BinaryOperator& BinaryOperator::Create(int precedence)
+CAS_PROTO_API BinaryOperator& BinaryOperator::Create(int precedence)
 {
     return Create(FunctionSymbol::Create(), precedence, Blank::Create(), Blank::Create());
 }
 
-const ExpressionBase& BinaryOperator::getA() const
+CAS_PROTO_API const ExpressionBase& BinaryOperator::getA() const
 {
     return getArgument(0);
 }
 
-const ExpressionBase& BinaryOperator::getB() const
+CAS_PROTO_API const ExpressionBase& BinaryOperator::getB() const
 {
     return getArgument(1);
 }
 
-const void BinaryOperator::bindA(const ExpressionBase& a)
+CAS_PROTO_API const void BinaryOperator::bindA(const ExpressionBase& a)
 {
     bindArgument(0, a);
 }
 
-const void BinaryOperator::bindB(const ExpressionBase& b)
+CAS_PROTO_API const void BinaryOperator::bindB(const ExpressionBase& b)
 {
     bindArgument(1, b);
 }
 
-BinaryOperator::BinaryOperator(const FunctionSymbol& symbol, int precedence, const ExpressionBase** arguments)
+CAS_PROTO_API BinaryOperator::BinaryOperator(const FunctionSymbol& symbol, int precedence, const ExpressionBase** arguments)
     : Function(symbol, arguments)
     , precedence(precedence)
 {}
 
-//void BinaryOperator::Accept(ExpressionVisitor& visitor)
+//CAS_PROTO_API void BinaryOperator::Accept(ExpressionVisitor& visitor)
 //{
 //    visitor.visit(*this);
 //}
 
-string BinaryOperator::toString() const
+CAS_PROTO_API std::string BinaryOperator::toString() const
 {
-    string rv;
+    std::string rv;
 
     const BinaryOperator* a = dynamic_cast<const BinaryOperator*>(&getA());
 
@@ -97,7 +97,7 @@ string BinaryOperator::toString() const
     return rv;
 }
 
-BinaryOperator& BinaryOperator::Substitute(const Variable& variable, const ExpressionBase& substitution) const
+CAS_PROTO_API BinaryOperator& BinaryOperator::Substitute(const Variable& variable, const ExpressionBase& substitution) const
 {
     const ExpressionBase& A = getA().Substitute(variable, substitution);
     const ExpressionBase& B = getB().Substitute(variable, substitution);
@@ -105,17 +105,17 @@ BinaryOperator& BinaryOperator::Substitute(const Variable& variable, const Expre
     return Create(getSymbol(), precedence, A, B);
 }
 
-BinaryOperator& BinaryOperator::Copy() const
+CAS_PROTO_API BinaryOperator& BinaryOperator::Copy() const
 {
     return Create(getSymbol(), precedence, getA().Copy(), getB().Copy());
 }
 
-int BinaryOperator::getPrecedence() const
+CAS_PROTO_API int BinaryOperator::getPrecedence() const
 {
     return precedence;
 }
 
-int BinaryOperator::getMinPrecedence() const
+CAS_PROTO_API int BinaryOperator::getMinPrecedence() const
 {
     int min = precedence;
 
@@ -160,7 +160,7 @@ int BinaryOperator::getMinPrecedence() const
     return min;
 }
 
-const ExpressionBase& BinaryOperator::getLeftmostTerm() const
+CAS_PROTO_API const ExpressionBase& BinaryOperator::getLeftmostTerm() const
 {
     const BinaryOperator* a = dynamic_cast<const BinaryOperator*>(&getA());
 
@@ -172,7 +172,7 @@ const ExpressionBase& BinaryOperator::getLeftmostTerm() const
     }
 }
 
-const ExpressionBase& BinaryOperator::getRightmostTerm() const
+CAS_PROTO_API const ExpressionBase& BinaryOperator::getRightmostTerm() const
 {
     const BinaryOperator* b = dynamic_cast<const BinaryOperator*>(&getB());
 

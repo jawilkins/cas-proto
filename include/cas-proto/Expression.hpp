@@ -1,6 +1,14 @@
-#include "Expression.h"
+#pragma once
+#ifndef Expression_hpp
+#define Expression_hpp
 
+#ifndef Expression_h
+#include "Expression.h"
+#endif
+
+#ifndef ExpressionVisitor_h
 #include "ExpressionVisitor.h"
+#endif
 
 
 
@@ -75,3 +83,5 @@ Expression<P, S, D>::~Expression()
     symbol_ptr->Release();
     symbol_ptr = 0;
 }
+
+#endif // Expression_hpp

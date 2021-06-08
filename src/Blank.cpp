@@ -1,48 +1,48 @@
 #include "cas-proto/Blank.h"
 
+#ifndef ExpressionVisitor_h
 #include "cas-proto/ExpressionVisitor.h"
-
-using std::string;
-
+#endif
 
 
-Blank& Blank::Create()
+
+CAS_PROTO_API Blank& Blank::Create()
 {
     return *(new Blank());
 }
 
-Blank::Blank()
+CAS_PROTO_API Blank::Blank()
     : ExpressionBase()
 {}
 
-Blank& Blank::Copy() const
+CAS_PROTO_API Blank& Blank::Copy() const
 {
     return Create();
 }
 
-//void Blank::Accept(ExpressionVisitor& visitor)
+//CAS_PROTO_API void Blank::Accept(ExpressionVisitor& visitor)
 //{
 //    visitor.visit(*this);
 //}
 
-Blank& Blank::Deriv(const Variable&) const
+CAS_PROTO_API Blank& Blank::Deriv(const Variable&) const
 {
     return Copy();
 }
 
-//Blank& Blank::Limit(const Variable&, const Constant&)
+//CAS_PROTO_API Blank& Blank::Limit(const Variable&, const Constant&)
 //{
 //    return Copy();
 //}
 
-string Blank::toString() const
+CAS_PROTO_API std::string Blank::toString() const
 {
     return "_";
 }
 
-bool Blank::IsSame(const ExpressionBase& rhs) const
+CAS_PROTO_API bool Blank::IsSame(const ExpressionBase& rhs) const
 {
     const Blank* b = dynamic_cast<const Blank*>(&rhs);
 
-    return b != 0;
+    return b != NULL;
 }

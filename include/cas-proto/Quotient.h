@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Quotient_h
 #define Quotient_h
 
@@ -11,27 +12,27 @@ class Quotient : public NcBinaryOperator {
 
 public:
 
-    static Quotient& Create();
-    static Quotient& Create(const ExpressionBase&, const ExpressionBase&);
+    CAS_PROTO_API static Quotient& Create();
+    CAS_PROTO_API static Quotient& Create(const ExpressionBase&, const ExpressionBase&);
 
-    const ExpressionBase& getNumerator() const;
-    const ExpressionBase& getDenominator() const;
+    CAS_PROTO_API const ExpressionBase& getNumerator() const;
+    CAS_PROTO_API const ExpressionBase& getDenominator() const;
 
-    const void bindNumerator(const ExpressionBase&);
-    const void bindDenominator(const ExpressionBase&);
+    CAS_PROTO_API const void bindNumerator(const ExpressionBase&);
+    CAS_PROTO_API const void bindDenominator(const ExpressionBase&);
 
-    Quotient& Deriv(const Variable& variable) const;
+    CAS_PROTO_API Quotient& Deriv(const Variable& variable) const;
 
-    ExpressionBase& Simplify() const;
+    CAS_PROTO_API ExpressionBase& Simplify() const;
 
 protected:
 
-    Quotient(const ExpressionBase**);
+    CAS_PROTO_API explicit Quotient(const ExpressionBase**);
 
 private:
 
-    Quotient(const Quotient&); // not implememented
-    Quotient& operator = (const Quotient&); // not implemented
+    Quotient(const Quotient&);            // not implemented
+    Quotient& operator=(const Quotient&); // not implemented
 
     static FunctionSymbol& symbol;
 
@@ -39,4 +40,4 @@ private:
 
 
 
-#endif
+#endif // Quotient_h

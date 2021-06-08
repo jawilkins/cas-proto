@@ -1,3 +1,4 @@
+#pragma once
 #ifndef NcBinaryOperator_h
 #define NcBinaryOperator_h
 
@@ -11,29 +12,29 @@ class NcBinaryOperator : public BinaryOperator {
 
 public:
 
-    static NcBinaryOperator& Create(const FunctionSymbol&, int, const ExpressionBase&, const ExpressionBase&);
-    static NcBinaryOperator& Create(const FunctionSymbol&, int);
-    static NcBinaryOperator& Create(const std::string&, int, const ExpressionBase&, const ExpressionBase&);
-    static NcBinaryOperator& Create(const std::string&, int);
-    static NcBinaryOperator& Create(int);
+    CAS_PROTO_API static NcBinaryOperator& Create(const FunctionSymbol&, int, const ExpressionBase&, const ExpressionBase&);
+    CAS_PROTO_API static NcBinaryOperator& Create(const FunctionSymbol&, int);
+    CAS_PROTO_API static NcBinaryOperator& Create(const std::string&, int, const ExpressionBase&, const ExpressionBase&);
+    CAS_PROTO_API static NcBinaryOperator& Create(const std::string&, int);
+    CAS_PROTO_API static NcBinaryOperator& Create(int);
 
-    NcBinaryOperator& Copy() const;
+    CAS_PROTO_API NcBinaryOperator& Copy() const;
 
-    //void Accept(ExpressionVisitor&);
+    //CAS_PROTO_API void Accept(ExpressionVisitor&);
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
 protected:
 
-    NcBinaryOperator(const FunctionSymbol&, int, const ExpressionBase**);
+    CAS_PROTO_API NcBinaryOperator(const FunctionSymbol&, int, const ExpressionBase**);
 
 private:
 
-    NcBinaryOperator(const NcBinaryOperator&); // not implememented
-    NcBinaryOperator& operator = (const NcBinaryOperator&); // not implemented
+    CAS_PROTO_API NcBinaryOperator(const NcBinaryOperator&);            // not implemented
+    CAS_PROTO_API NcBinaryOperator& operator=(const NcBinaryOperator&); // not implemented
 
 };
 
 
 
-#endif
+#endif // NcBinaryOperator_h

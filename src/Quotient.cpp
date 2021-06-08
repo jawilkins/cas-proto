@@ -1,10 +1,24 @@
 #include "cas-proto/Quotient.h"
 
+#ifndef Blank_h
 #include "cas-proto/Blank.h"
+#endif
+
+#ifndef Constant_h
 #include "cas-proto/Constant.h"
+#endif
+
+#ifndef QuotientDefinition_h
 #include "cas-proto/QuotientDefinition.h"
+#endif
+
+#ifndef precedence_h
 #include "cas-proto/precedence.h"
+#endif
+
+#ifndef Natural_h
 #include "cas-proto/Natural.h"
+#endif
 
 
 
@@ -12,12 +26,12 @@ FunctionSymbol& Quotient::symbol = FunctionSymbol::Create("\xF6", QuotientDefini
 
 
 
-Quotient& Quotient::Create()
+CAS_PROTO_API Quotient& Quotient::Create()
 {
     return Create(Blank::Create(), Blank::Create());
 }
 
-Quotient& Quotient::Create(const ExpressionBase& numerator, const ExpressionBase& denominator)
+CAS_PROTO_API Quotient& Quotient::Create(const ExpressionBase& numerator, const ExpressionBase& denominator)
 {
     const ExpressionBase* arguments[2];
 
@@ -27,37 +41,37 @@ Quotient& Quotient::Create(const ExpressionBase& numerator, const ExpressionBase
     return *(new Quotient(arguments));
 }
 
-Quotient::Quotient(const ExpressionBase** arguments)
+CAS_PROTO_API Quotient::Quotient(const ExpressionBase** arguments)
     : NcBinaryOperator(symbol, MUL, arguments)
 {}
 
-const ExpressionBase& Quotient::getNumerator() const
+CAS_PROTO_API const ExpressionBase& Quotient::getNumerator() const
 {
     return getA();
 }
 
-const ExpressionBase& Quotient::getDenominator() const
+CAS_PROTO_API const ExpressionBase& Quotient::getDenominator() const
 {
     return getB();
 }
 
-const void Quotient::bindNumerator(const ExpressionBase& numerator)
+CAS_PROTO_API const void Quotient::bindNumerator(const ExpressionBase& numerator)
 {
     bindA(numerator);
 }
 
-const void Quotient::bindDenominator(const ExpressionBase& denominator)
+CAS_PROTO_API const void Quotient::bindDenominator(const ExpressionBase& denominator)
 {
     bindB(denominator);
 }
 
-Quotient& Quotient::Deriv(const Variable& variable) const
+CAS_PROTO_API Quotient& Quotient::Deriv(const Variable& variable) const
 {
     assert(false);
     throw 0;
 }
 
-ExpressionBase& Quotient::Simplify() const
+CAS_PROTO_API ExpressionBase& Quotient::Simplify() const
 {
     ExpressionBase& N = getA().Simplify();
     ExpressionBase& D = getB().Simplify();

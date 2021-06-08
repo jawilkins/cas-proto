@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ConstantExpression_h
 #define ConstantExpression_h
 
@@ -9,8 +10,8 @@ class ConstantExpression : public Expression {
 
 public:
 
-    void accept(const class ExpressionVisitor&);
+    CAS_PROTO_API void accept(const class ExpressionVisitor&);
 
 };
 
-#endif
+#endif // ConstantExpression_h

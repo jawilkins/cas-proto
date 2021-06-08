@@ -2,11 +2,11 @@
 
 
 
-ImaginaryDefinition::ImaginaryDefinition()
+CAS_PROTO_API ImaginaryDefinition::ImaginaryDefinition()
     : ConstantDefinition()
 {}
 
-ImaginaryDefinition& ImaginaryDefinition::getInstance()
+CAS_PROTO_API ImaginaryDefinition& ImaginaryDefinition::getInstance()
 {
     static ImaginaryDefinition* instance = 0;
 

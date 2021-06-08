@@ -1,9 +1,18 @@
+#pragma once
 #ifndef Constant_h
 #define Constant_h
 
+#ifndef Expression_h
 #include "Expression.h"
+#endif
+
+#ifndef ConstantSymbol_h
 #include "ConstantSymbol.h"
+#endif
+
+#ifndef ConstantDefinition_h
 #include "ConstantDefinition.h"
+#endif
 
 
 
@@ -13,27 +22,27 @@ public:
 
     using Expression<Constant, ConstantSymbol, ConstantDefinition>::Create;
 
-    static Constant& Create(const ConstantSymbol& symbol);
+    CAS_PROTO_API static Constant& Create(const ConstantSymbol& symbol);
 
-    static Constant& getImaginary();
+    CAS_PROTO_API static Constant& getImaginary();
 
-    Constant& Copy() const;
+    CAS_PROTO_API Constant& Copy() const;
 
-    Constant& Deriv(const Variable&) const;
+    CAS_PROTO_API Constant& Deriv(const Variable&) const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
 protected:
 
-    Constant(const ConstantSymbol&);
+    CAS_PROTO_API Constant(const ConstantSymbol&);
 
 private:
 
-    Constant(const Constant&); // not implemented
-    Constant& operator = (const Constant&); // not implemented
+    Constant(const Constant&);            // not implemented
+    Constant& operator=(const Constant&); // not implemented
 
 };
 
 
 
-#endif
+#endif // Blank_h

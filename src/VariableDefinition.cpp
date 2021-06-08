@@ -8,12 +8,12 @@ VariableDefinition VariableDefinition::undef;
 
 
 
-string VariableDefinition::toString() const
+CAS_PROTO_API std::string VariableDefinition::toString() const
 {
     return "<undefined-variable>";
 }
 
-string VariableDefinition::genLexeme()
+CAS_PROTO_API std::string VariableDefinition::genLexeme()
 {
     return "_unnamed";
 }

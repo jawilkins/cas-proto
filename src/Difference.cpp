@@ -1,11 +1,28 @@
 #include "cas-proto/Difference.h"
 
+#ifndef Blank_h
 #include "cas-proto/Blank.h"
+#endif
+
+#ifndef Constant_h
 #include "cas-proto/Constant.h"
+#endif
+
+#ifndef DifferenceDefinition_h
 #include "cas-proto/DifferenceDefinition.h"
+#endif
+
+#ifndef Negate_h
 #include "cas-proto/Negate.h"
+#endif
+
+#ifndef precedence_h
 #include "cas-proto/precedence.h"
+#endif
+
+#ifndef Natural_h
 #include "cas-proto/Natural.h"
+#endif
 
 
 
@@ -13,12 +30,12 @@ FunctionSymbol& Difference::symbol = FunctionSymbol::Create("-", DifferenceDefin
 
 
 
-Difference& Difference::Create()
+CAS_PROTO_API Difference& Difference::Create()
 {
     return Create(Blank::Create(), Blank::Create());
 }
 
-Difference& Difference::Create(ExpressionBase& minuend, ExpressionBase& subtrahend)
+CAS_PROTO_API Difference& Difference::Create(ExpressionBase& minuend, ExpressionBase& subtrahend)
 {
     const ExpressionBase* arguments[2];
 
@@ -28,36 +45,36 @@ Difference& Difference::Create(ExpressionBase& minuend, ExpressionBase& subtrahe
     return *(new Difference(arguments));
 }
 
-Difference::Difference(const ExpressionBase** arguments)
+CAS_PROTO_API Difference::Difference(const ExpressionBase** arguments)
     : NcBinaryOperator(symbol, ADD, arguments)
 {}
 
-const ExpressionBase& Difference::getMinuend() const
+CAS_PROTO_API const ExpressionBase& Difference::getMinuend() const
 {
     return getA();
 }
 
-const ExpressionBase& Difference::getSubtrahend() const
+CAS_PROTO_API const ExpressionBase& Difference::getSubtrahend() const
 {
     return getB();
 }
 
-const void Difference::bindMinuend(const ExpressionBase& minuend)
+CAS_PROTO_API const void Difference::bindMinuend(const ExpressionBase& minuend)
 {
     bindA(minuend);
 }
 
-const void Difference::bindSubtrahend(const ExpressionBase& subtrahend)
+CAS_PROTO_API const void Difference::bindSubtrahend(const ExpressionBase& subtrahend)
 {
     bindB(subtrahend);
 }
 
-Difference& Difference::Deriv(const Variable& variable) const
+CAS_PROTO_API Difference& Difference::Deriv(const Variable& variable) const
 {
     return Difference::Create(getMinuend().Deriv(variable), getSubtrahend().Deriv(variable));
 }
 
-ExpressionBase& Difference::Simplify() const
+CAS_PROTO_API ExpressionBase& Difference::Simplify() const
 {
     ExpressionBase& A = getA().Simplify();
     ExpressionBase& B = getB().Simplify();

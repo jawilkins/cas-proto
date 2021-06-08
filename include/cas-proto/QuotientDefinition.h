@@ -1,3 +1,4 @@
+#pragma once
 #ifndef QuotientDefinition_h
 #define QuotientDefinition_h
 
@@ -11,17 +12,17 @@ class QuotientDefinition : public FunctionDefinition {
 
 public:
 
-    static QuotientDefinition& getInstance();
+    CAS_PROTO_API static QuotientDefinition& getInstance();
 
 private:
 
-    QuotientDefinition();
+    CAS_PROTO_API QuotientDefinition();
 
-    QuotientDefinition(const QuotientDefinition&);
-    QuotientDefinition& operator = (const QuotientDefinition&);
+    QuotientDefinition(const QuotientDefinition&);            // not implemented
+    QuotientDefinition& operator=(const QuotientDefinition&); // not implemented
 
 };
 
 
 
-#endif
+#endif // QuotientDefinition_h

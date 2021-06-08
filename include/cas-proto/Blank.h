@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Blank_h
 #define Blank_h
 
@@ -11,29 +12,29 @@ class Blank : public ExpressionBase {
 
 public:
 
-    static Blank& Create();
+    CAS_PROTO_API static Blank& Create();
 
-    Blank& Copy() const;
+    CAS_PROTO_API Blank& Copy() const;
 
-    //void Accept(ExpressionVisitor&);
+    //CAS_PROTO_API void Accept(ExpressionVisitor&);
 
-    Blank& Deriv(const Variable&) const;
+    CAS_PROTO_API Blank& Deriv(const Variable&) const;
 
-    //Blank& Limit(const Variable&, const Constant&);
+    //CAS_PROTO_API Blank& Limit(const Variable&, const Constant&);
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    bool IsSame(const ExpressionBase&) const;
+    CAS_PROTO_API bool IsSame(const ExpressionBase&) const;
 
 private:
 
-    Blank();
+    CAS_PROTO_API Blank();
 
-    Blank(const Blank&); // not implemented
-    Blank& operator = (const Blank&); // not implemented
+    Blank(const Blank&);            // not implemented
+    Blank& operator=(const Blank&); // not implemented
 
 };
 
 
 
-#endif
+#endif // Blank_h

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef TwoDefinition_h
 #define TwoDefinition_h
 
@@ -11,17 +12,17 @@ class TwoDefinition : public ConstantDefinition {
 
 public:
 
-    static TwoDefinition& getInstance();
+    CAS_PROTO_API static TwoDefinition& getInstance();
 
 private:
 
-    TwoDefinition();
+    CAS_PROTO_API TwoDefinition();
 
-    TwoDefinition(const TwoDefinition&);
-    TwoDefinition& operator = (const TwoDefinition&);
+    TwoDefinition(const TwoDefinition&);            // not implemented
+    TwoDefinition& operator=(const TwoDefinition&); // not implemented
 
 };
 
 
 
-#endif
+#endif // TwoDefinition_h

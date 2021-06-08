@@ -1,13 +1,10 @@
 #include "cas-proto/Natural.h"
 
-using std::string;
-
 #include <sstream>
-using std::stringstream;
 
 
 
-static const ConstantSymbol& lookup(const string& s)
+static const ConstantSymbol& lookup(const std::string& s)
 {
     static int size = 0;
     static int next = 0;
@@ -42,38 +39,38 @@ static const ConstantSymbol& lookup(int n)
 {
     assert(n >= 0);
 
-    stringstream ss;
+    std::stringstream ss;
     ss << n;
 
     return lookup(ss.str());
 }
 
-Natural& Natural::Create(int n)
+CAS_PROTO_API Natural& Natural::Create(int n)
 {
     return *(new Natural(n));
 }
 
-Natural::Natural(int n)
+CAS_PROTO_API Natural::Natural(int n)
     : Constant(lookup(n))
     , n(n)
 {}
 
-Natural& Natural::Copy() const
+CAS_PROTO_API Natural& Natural::Copy() const
 {
     return Create(n);
 }
 
-Natural& Natural::Deriv(const Variable&) const
+CAS_PROTO_API Natural& Natural::Deriv(const Variable&) const
 {
     return Create(0);
 }
 
-string Natural::toString() const
+CAS_PROTO_API std::string Natural::toString() const
 {
     return getSymbol().getLexeme();
 }
 
-int Natural::get() const
+CAS_PROTO_API int Natural::get() const
 {
     return n;
 }

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef NegateDefinition_h
 #define NegateDefinition_h
 
@@ -24,4 +25,4 @@ private:
 
 
 
-#endif
+#endif // NegateDefinition_h

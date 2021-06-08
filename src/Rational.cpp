@@ -1,13 +1,10 @@
 #include "cas-proto/Rational.h"
 
-using std::string;
-
 #include <sstream>
-using std::stringstream;
 
 
 
-static const ConstantSymbol& lookup(const string& s)
+static const ConstantSymbol& lookup(const std::string& s)
 {
     static int size = 0;
     static int next = 0;
@@ -61,7 +58,7 @@ static const ConstantSymbol& lookup(int n, int d)
     assert(d > 0);
     assert(n >= 0);
 
-    stringstream ss;
+    std::stringstream ss;
 
     if (n == 1 && d == 2) {
         ss << "\xAB";
@@ -76,33 +73,33 @@ static const ConstantSymbol& lookup(int n, int d)
     return lookup(ss.str());
 }
 
-Rational& Rational::Create(int n, int d)
+CAS_PROTO_API Rational& Rational::Create(int n, int d)
 {
     return *(new Rational(n, d));
 }
 
-Rational::Rational(int n, int d)
+CAS_PROTO_API Rational::Rational(int n, int d)
     : Constant(lookup(n, d))
     , n(n)
     , d(d)
 {}
 
-Rational& Rational::Copy() const
+CAS_PROTO_API Rational& Rational::Copy() const
 {
     return Create(n, d);
 }
 
-Natural& Rational::Deriv(const Variable&) const
+CAS_PROTO_API Natural& Rational::Deriv(const Variable&) const
 {
     return Natural::Create(0);
 }
 
-string Rational::toString() const
+CAS_PROTO_API std::string Rational::toString() const
 {
     return getSymbol().getLexeme();
 }
 
-ExpressionBase& Rational::Simplify() const
+CAS_PROTO_API ExpressionBase& Rational::Simplify() const
 {
    const int g = gcd(n, d);
 
@@ -123,12 +120,12 @@ ExpressionBase& Rational::Simplify() const
    }
 }
 
-int Rational::getNumerator() const
+CAS_PROTO_API int Rational::getNumerator() const
 {
     return n;
 }
 
-int Rational::getDenominator() const
+CAS_PROTO_API int Rational::getDenominator() const
 {
     return d;
 }

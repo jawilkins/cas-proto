@@ -1,7 +1,10 @@
+#pragma once
 #ifndef Expression_h
 #define Expression_h
 
+#ifndef ExpressionBase_h
 #include "ExpressionBase.h"
+#endif
 
 
 
@@ -28,12 +31,12 @@ protected:
 
     explicit Expression<P, S, D>(const S&);
 
-    ~Expression<P, S, D>();
+    virtual ~Expression<P, S, D>();
 
 private:
 
-    Expression<P, S, D>(const Expression<P, S, D>&); // not implemented
-    Expression<P, S, D>& operator = (const Expression<P, S, D>&); // not implemented
+    Expression<P, S, D>(const Expression<P, S, D>&);            // not implemented
+    Expression<P, S, D>& operator=(const Expression<P, S, D>&); // not implemented
 
     const S* symbol_ptr;
 
@@ -41,8 +44,10 @@ private:
 
 
 
+#ifndef Expression_hpp
 #include "Expression.hpp"
-
-
-
 #endif
+
+
+
+#endif // Expression_h

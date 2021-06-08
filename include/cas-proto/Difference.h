@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Difference_h
 #define Difference_h
 
@@ -11,27 +12,27 @@ class Difference : public NcBinaryOperator {
 
 public:
 
-    static Difference& Create();
-    static Difference& Create(ExpressionBase&, ExpressionBase&);
+    CAS_PROTO_API static Difference& Create();
+    CAS_PROTO_API static Difference& Create(ExpressionBase&, ExpressionBase&);
 
-    const ExpressionBase& getMinuend() const;
-    const ExpressionBase& getSubtrahend() const;
+    CAS_PROTO_API const ExpressionBase& getMinuend() const;
+    CAS_PROTO_API const ExpressionBase& getSubtrahend() const;
 
-    const void bindMinuend(const ExpressionBase&);
-    const void bindSubtrahend(const ExpressionBase&);
+    CAS_PROTO_API const void bindMinuend(const ExpressionBase&);
+    CAS_PROTO_API const void bindSubtrahend(const ExpressionBase&);
 
-    Difference& Deriv(const Variable& variable) const;
+    CAS_PROTO_API Difference& Deriv(const Variable& variable) const;
 
-    ExpressionBase& Simplify() const;
+    CAS_PROTO_API ExpressionBase& Simplify() const;
 
 protected:
 
-    Difference(const ExpressionBase**);
+    CAS_PROTO_API explicit Difference(const ExpressionBase**);
 
 private:
 
-    Difference(const Difference&); // not implememented
-    Difference& operator = (const Difference&); // not implemented
+    Difference(const Difference&);            // not implemented
+    Difference& operator=(const Difference&); // not implemented
 
     static FunctionSymbol& symbol;
 
@@ -39,4 +40,4 @@ private:
 
 
 
-#endif
+#endif // Difference_h

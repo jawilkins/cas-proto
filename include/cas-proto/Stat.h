@@ -1,5 +1,8 @@
+#pragma once
 #ifndef Stat_h
 #define Stat_h
+
+#include "api.h"
 
 #include <string>
 
@@ -9,11 +12,11 @@ class Stat {
 
 public:
 
-    Stat(const std::string&);
+    CAS_PROTO_API explicit Stat(const std::string&);
 
-    void Bump();
-    void Unbump();
-    void Report();
+    CAS_PROTO_API void Bump();
+    CAS_PROTO_API void Unbump();
+    CAS_PROTO_API void Report();
 
 private:
 
@@ -27,4 +30,4 @@ private:
 
 
 
-#endif
+#endif // Stat_h

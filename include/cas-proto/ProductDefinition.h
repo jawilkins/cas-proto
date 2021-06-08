@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ProductDefinition_h
 #define ProductDefinition_h
 
@@ -24,4 +25,4 @@ private:
 
 
 
-#endif
+#endif // ProductDefinition_h

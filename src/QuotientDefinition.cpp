@@ -2,11 +2,11 @@
 
 
 
-QuotientDefinition::QuotientDefinition()
+CAS_PROTO_API QuotientDefinition::QuotientDefinition()
     : FunctionDefinition(2)
 {}
 
-QuotientDefinition& QuotientDefinition::getInstance()
+CAS_PROTO_API QuotientDefinition& QuotientDefinition::getInstance()
 {
     static QuotientDefinition* instance = 0;
 

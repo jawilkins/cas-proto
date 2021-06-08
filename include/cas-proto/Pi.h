@@ -1,3 +1,4 @@
+#pragma once
 #ifndef Pi_h
 #define Pi_h
 
@@ -13,4 +14,4 @@ public:
 
 };
 
-#endif
+#endif // Pi_h

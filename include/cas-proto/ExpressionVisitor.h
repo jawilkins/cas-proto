@@ -1,5 +1,6 @@
-//#ifndef ExpressionVisitor_h
-//#define ExpressionVisitor_h
+#pragma once
+#ifndef ExpressionVisitor_h
+#define ExpressionVisitor_h
 //
 ////#ifndef Blank_h
 ////#include "Blank.h"
@@ -33,4 +34,4 @@
 //
 //
 //
-//#endif
+#endif // ExpressionVisitor_h

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ImaginaryDefinition_h
 #define ImaginaryDefinition_h
 
@@ -11,17 +12,17 @@ class ImaginaryDefinition : public ConstantDefinition {
 
 public:
 
-    static ImaginaryDefinition& getInstance();
+    CAS_PROTO_API static ImaginaryDefinition& getInstance();
 
 private:
 
-    ImaginaryDefinition();
+    CAS_PROTO_API ImaginaryDefinition();
 
-    ImaginaryDefinition(const ImaginaryDefinition&);
-    ImaginaryDefinition& operator = (const ImaginaryDefinition&);
+    ImaginaryDefinition(const ImaginaryDefinition&);            // not implemented
+    ImaginaryDefinition& operator=(const ImaginaryDefinition&); // not implemented
 
 };
 
 
 
-#endif
+#endif // ImaginaryDefinition_h

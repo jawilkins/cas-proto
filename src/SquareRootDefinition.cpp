@@ -2,11 +2,11 @@
 
 
 
-SquareRootDefinition::SquareRootDefinition()
+CAS_PROTO_API SquareRootDefinition::SquareRootDefinition()
     : FunctionDefinition(1)
 {}
 
-SquareRootDefinition& SquareRootDefinition::getInstance()
+CAS_PROTO_API SquareRootDefinition& SquareRootDefinition::getInstance()
 {
     static SquareRootDefinition* instance = 0;
 

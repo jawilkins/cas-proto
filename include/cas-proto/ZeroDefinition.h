@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ZeroDefinition_h
 #define ZeroDefinition_h
 
@@ -11,14 +12,14 @@ class ZeroDefinition : public ConstantDefinition {
 
 public:
 
-    static ZeroDefinition& getInstance();
+    CAS_PROTO_API static ZeroDefinition& getInstance();
 
 private:
 
-    ZeroDefinition();
+    CAS_PROTO_API ZeroDefinition();
 
-    ZeroDefinition(const ZeroDefinition&);
-    ZeroDefinition& operator = (const ZeroDefinition&);
+    ZeroDefinition(const ZeroDefinition&);            // not implemented
+    ZeroDefinition& operator=(const ZeroDefinition&); // not implemented
 
 };
 

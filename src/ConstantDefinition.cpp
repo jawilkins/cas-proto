@@ -1,19 +1,17 @@
 #include "cas-proto/ConstantDefinition.h"
 
-using std::string;
-
 
 
 ConstantDefinition ConstantDefinition::undef;
 
 
 
-string ConstantDefinition::toString() const
+CAS_PROTO_API std::string ConstantDefinition::toString() const
 {
     return "<undefined-constant>";
 }
 
-string ConstantDefinition::genLexeme()
+CAS_PROTO_API std::string ConstantDefinition::genLexeme()
 {
     return "_UNNAMED";
 }

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ConstantSymbol_h
 #define ConstantSymbol_h
 
@@ -11,4 +12,4 @@
 
 typedef Symbol<ConstantDefinition> ConstantSymbol;
 
-#endif
+#endif // ConsantSymbol_h

@@ -9,7 +9,7 @@
 
 #include "cas-proto/Ref.h"
 
-ExpressionBase& getQuadraticEquation(
+CAS_PROTO_API ExpressionBase& getQuadraticEquation(
     const ExpressionBase& A,
     const ExpressionBase& B,
     const ExpressionBase& C)

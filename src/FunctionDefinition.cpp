@@ -8,21 +8,21 @@ FunctionDefinition FunctionDefinition::undef(0);
 
 
 
-FunctionDefinition::FunctionDefinition(int arity)
+CAS_PROTO_API FunctionDefinition::FunctionDefinition(int arity)
     : arity(arity)
 {}
 
-string FunctionDefinition::toString() const
+CAS_PROTO_API string FunctionDefinition::toString() const
 {
     return "<undefined-function>";
 }
 
-int FunctionDefinition::getArity() const
+CAS_PROTO_API int FunctionDefinition::getArity() const
 {
     return arity;
 }
 
-string FunctionDefinition::genLexeme()
+CAS_PROTO_API string FunctionDefinition::genLexeme()
 {
     return "_Unamed";
 }

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef FunctionSymbol_h
 #define FunctionSymbol_h
 
@@ -11,4 +12,4 @@
 
 typedef Symbol<FunctionDefinition> FunctionSymbol;
 
-#endif
+#endif // FunctionSymbol_h

@@ -1,10 +1,16 @@
 #include "cas-proto/Constant.h"
 
+#ifndef ConstantSymbol_h
 #include "cas-proto/ConstantSymbol.h"
-#include "cas-proto/Natural.h"
-#include "cas-proto/ImaginaryDefinition.h"
+#endif
 
-using std::string;
+#ifndef Natural_h
+#include "cas-proto/Natural.h"
+#endif
+
+#ifndef ImaginaryDefinition_h
+#include "cas-proto/ImaginaryDefinition.h"
+#endif
 
 
 
@@ -12,31 +18,31 @@ static ConstantSymbol& imaginary_symbol = ConstantSymbol::Create("\xAD", Imagina
 
 
 
-Constant& Constant::Create(const ConstantSymbol& symbol)
+CAS_PROTO_API Constant& Constant::Create(const ConstantSymbol& symbol)
 {
     return *(new Constant(symbol));
 }
 
-Constant::Constant(const ConstantSymbol& symbol)
+CAS_PROTO_API Constant::Constant(const ConstantSymbol& symbol)
     : Expression<Constant, ConstantSymbol, ConstantDefinition>(symbol)
 {}
 
-Constant& Constant::Copy() const
+CAS_PROTO_API Constant& Constant::Copy() const
 {
     return Create(getSymbol());
 }
 
-Constant& Constant::Deriv(const Variable&) const
+CAS_PROTO_API Constant& Constant::Deriv(const Variable&) const
 {
     return Natural::Create(0);
 }
 
-Constant& Constant::getImaginary()
+CAS_PROTO_API Constant& Constant::getImaginary()
 {
     return Create(imaginary_symbol);
 }
 
-string Constant::toString() const
+CAS_PROTO_API std::string Constant::toString() const
 {
     return getSymbol().getLexeme();
 }

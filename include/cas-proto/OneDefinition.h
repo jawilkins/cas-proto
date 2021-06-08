@@ -1,3 +1,4 @@
+#pragma once
 #ifndef OneDefinition_h
 #define OneDefinition_h
 
@@ -24,4 +25,4 @@ private:
 
 
 
-#endif
+#endif // OneDefinition_h

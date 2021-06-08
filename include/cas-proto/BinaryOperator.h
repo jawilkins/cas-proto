@@ -1,3 +1,4 @@
+#pragma once
 #ifndef BinaryOperator_h
 #define BinaryOperator_h
 
@@ -11,40 +12,40 @@ class BinaryOperator : public Function {
 
 public:
 
-    static BinaryOperator& Create(const FunctionSymbol&, int, const ExpressionBase&, const ExpressionBase&);
-    static BinaryOperator& Create(const FunctionSymbol&, int);
-    static BinaryOperator& Create(const std::string&, int, const ExpressionBase&, const ExpressionBase&);
-    static BinaryOperator& Create(const std::string&, int);
-    static BinaryOperator& Create(int);
+    CAS_PROTO_API static BinaryOperator& Create(const FunctionSymbol&, int, const ExpressionBase&, const ExpressionBase&);
+    CAS_PROTO_API static BinaryOperator& Create(const FunctionSymbol&, int);
+    CAS_PROTO_API static BinaryOperator& Create(const std::string&, int, const ExpressionBase&, const ExpressionBase&);
+    CAS_PROTO_API static BinaryOperator& Create(const std::string&, int);
+    CAS_PROTO_API static BinaryOperator& Create(int);
 
-    const ExpressionBase& getA() const;
-    const ExpressionBase& getB() const;
+    CAS_PROTO_API const ExpressionBase& getA() const;
+    CAS_PROTO_API const ExpressionBase& getB() const;
 
-    const void bindA(const ExpressionBase&);
-    const void bindB(const ExpressionBase&);
+    CAS_PROTO_API const void bindA(const ExpressionBase&);
+    CAS_PROTO_API const void bindB(const ExpressionBase&);
 
-    BinaryOperator& Copy() const;
+    CAS_PROTO_API BinaryOperator& Copy() const;
 
-    //void Accept(ExpressionVisitor&);
+    //CAS_PROTO_API void Accept(ExpressionVisitor&);
 
-    BinaryOperator& Substitute(const Variable&, const ExpressionBase&) const;
+    CAS_PROTO_API BinaryOperator& Substitute(const Variable&, const ExpressionBase&) const;
 
-    std::string toString() const;
+    CAS_PROTO_API std::string toString() const;
 
-    int getPrecedence() const;
-    int getMinPrecedence() const;
+    CAS_PROTO_API int getPrecedence() const;
+    CAS_PROTO_API int getMinPrecedence() const;
 
-    const ExpressionBase& getRightmostTerm() const;
-    const ExpressionBase& getLeftmostTerm() const;
+    CAS_PROTO_API const ExpressionBase& getRightmostTerm() const;
+    CAS_PROTO_API const ExpressionBase& getLeftmostTerm() const;
 
 protected:
 
-    BinaryOperator(const FunctionSymbol&, int, const ExpressionBase**);
+    CAS_PROTO_API BinaryOperator(const FunctionSymbol&, int, const ExpressionBase**);
 
 private:
 
-    BinaryOperator(const BinaryOperator&); // not implememented
-    BinaryOperator& operator = (const BinaryOperator&); // not implemented
+    BinaryOperator(const BinaryOperator&);            // not implemented
+    BinaryOperator& operator=(const BinaryOperator&); // not implemented
 
     int precedence;
 
@@ -52,4 +53,4 @@ private:
 
 
 
-#endif
+#endif // BinaryOperator_h

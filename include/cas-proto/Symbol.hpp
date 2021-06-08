@@ -1,6 +1,10 @@
+#pragma once
+#ifndef Symbol_hpp
+#define Symbol_hpp
+
 #include "Symbol.h"
 
-#include <assert.h>
+#include <cassert>
 
 
 
@@ -56,3 +60,5 @@ Symbol<T>::~Symbol()
     if (definition_ptr != &T::undef) definition_ptr->Release();
     definition_ptr = 0;
 }
+
+#endif // Symbol_hpp

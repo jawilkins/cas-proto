@@ -1,13 +1,16 @@
 #include "cas-proto/UnaryOperator.h"
-#include "cas-proto/BinaryOperator.h"
 
+#ifndef Blank_h
 #include "cas-proto/Blank.h"
+#endif
 
-using std::string;
+#ifndef BinaryOperator_h
+#include "cas-proto/BinaryOperator.h"
+#endif
 
 
 
-UnaryOperator& UnaryOperator::Create(const FunctionSymbol& symbol, const ExpressionBase& a)
+CAS_PROTO_API UnaryOperator& UnaryOperator::Create(const FunctionSymbol& symbol, const ExpressionBase& a)
 {
     assert(symbol.getDefinition().IsSame(FunctionDefinition::undef) || symbol.getDefinition().getArity() == 1);
 
@@ -18,48 +21,48 @@ UnaryOperator& UnaryOperator::Create(const FunctionSymbol& symbol, const Express
     return *(new UnaryOperator(symbol, arguments));
 }
 
-UnaryOperator& UnaryOperator::Create(const FunctionSymbol& symbol)
+CAS_PROTO_API UnaryOperator& UnaryOperator::Create(const FunctionSymbol& symbol)
 {
     assert(symbol.getDefinition().IsSame(FunctionDefinition::undef) || symbol.getDefinition().getArity() == 1);
 
     return Create(symbol, Blank::Create());
 }
 
-UnaryOperator& UnaryOperator::Create(const std::string& lexeme, const ExpressionBase& a)
+CAS_PROTO_API UnaryOperator& UnaryOperator::Create(const std::string& lexeme, const ExpressionBase& a)
 {
     return Create(FunctionSymbol::Create(lexeme), a);
 }
 
-UnaryOperator& UnaryOperator::Create(const std::string& lexeme)
+CAS_PROTO_API UnaryOperator& UnaryOperator::Create(const std::string& lexeme)
 {
     return Create(FunctionSymbol::Create(lexeme), Blank::Create());
 }
 
-UnaryOperator& UnaryOperator::Create()
+CAS_PROTO_API UnaryOperator& UnaryOperator::Create()
 {
     return Create(FunctionSymbol::Create(), Blank::Create());
 }
 
-const ExpressionBase& UnaryOperator::get() const
+CAS_PROTO_API const ExpressionBase& UnaryOperator::get() const
 {
     return getArgument(0);
 }
 
-const void UnaryOperator::bind(const ExpressionBase& a)
+CAS_PROTO_API const void UnaryOperator::bind(const ExpressionBase& a)
 {
     bindArgument(0, a);
 }
 
-UnaryOperator::UnaryOperator(const FunctionSymbol& symbol, const ExpressionBase** arguments)
+CAS_PROTO_API UnaryOperator::UnaryOperator(const FunctionSymbol& symbol, const ExpressionBase** arguments)
     : Function(symbol, arguments)
 {}
 
-//void UnaryOperator::Accept(ExpressionVisitor& visitor)
+//CAS_PROTO_API void UnaryOperator::Accept(ExpressionVisitor& visitor)
 //{
 //    visitor.visit(*this);
 //}
 
-string UnaryOperator::toString() const
+CAS_PROTO_API std::string UnaryOperator::toString() const
 {
     const BinaryOperator* f = dynamic_cast<const BinaryOperator*>(&get());
 
@@ -71,14 +74,14 @@ string UnaryOperator::toString() const
     }
 }
 
-UnaryOperator& UnaryOperator::Substitute(const Variable& variable, const ExpressionBase& substitution) const
+CAS_PROTO_API UnaryOperator& UnaryOperator::Substitute(const Variable& variable, const ExpressionBase& substitution) const
 {
     const ExpressionBase& A = get().Substitute(variable, substitution);
 
     return Create(getSymbol(), A);
 }
 
-UnaryOperator& UnaryOperator::Copy() const
+CAS_PROTO_API UnaryOperator& UnaryOperator::Copy() const
 {
     return Create(getSymbol(), get().Copy());
 }

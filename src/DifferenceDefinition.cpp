@@ -2,11 +2,11 @@
 
 
 
-DifferenceDefinition::DifferenceDefinition()
+CAS_PROTO_API DifferenceDefinition::DifferenceDefinition()
     : FunctionDefinition(2)
 {}
 
-DifferenceDefinition& DifferenceDefinition::getInstance()
+CAS_PROTO_API DifferenceDefinition& DifferenceDefinition::getInstance()
 {
     static DifferenceDefinition* instance = 0;
 

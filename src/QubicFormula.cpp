@@ -11,7 +11,7 @@
 
 #include "cas-proto/Ref.h"
 
-ExpressionBase& getCubicEquation(
+CAS_PROTO_API ExpressionBase& getCubicEquation(
     const ExpressionBase& A,
     const ExpressionBase& B,
     const ExpressionBase& C,
