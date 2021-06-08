@@ -12,6 +12,7 @@ project(cas-proto
 set(LIBRARY ${LIBRARY_PREFIX}${PROJECT_NAME})
 
 list(APPEND HEADERS
+    include/${PROJECT_NAME}/api.h
     include/${PROJECT_NAME}/BinaryOperator.h
     include/${PROJECT_NAME}/Blank.h
     include/${PROJECT_NAME}/Constant.h
