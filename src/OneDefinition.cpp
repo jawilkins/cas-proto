@@ -2,11 +2,11 @@
 
 
 
-OneDefinition::OneDefinition()
+CAS_PROTO_API OneDefinition::OneDefinition()
     : ConstantDefinition()
 {}
 
-OneDefinition& OneDefinition::getInstance()
+CAS_PROTO_API OneDefinition& OneDefinition::getInstance()
 {
     static OneDefinition* instance = 0;
 

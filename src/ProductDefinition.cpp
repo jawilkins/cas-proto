@@ -2,11 +2,11 @@
 
 
 
-ProductDefinition::ProductDefinition()
+CAS_PROTO_API ProductDefinition::ProductDefinition()
     : FunctionDefinition(2)
 {}
 
-ProductDefinition& ProductDefinition::getInstance()
+CAS_PROTO_API ProductDefinition& ProductDefinition::getInstance()
 {
     static ProductDefinition* instance = 0;
 

@@ -12,14 +12,14 @@ class OneDefinition : public ConstantDefinition {
 
 public:
 
-    static OneDefinition& getInstance();
+    CAS_PROTO_API static OneDefinition& getInstance();
 
 private:
 
-    OneDefinition();
+    CAS_PROTO_API OneDefinition();
 
-    OneDefinition(const OneDefinition&);
-    OneDefinition& operator = (const OneDefinition&);
+    OneDefinition(const OneDefinition&);            // not implemented
+    OneDefinition& operator=(const OneDefinition&); // not implemented
 
 };
 

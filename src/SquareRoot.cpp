@@ -1,11 +1,11 @@
-//#include "SquareRoot.h"
+#include "cas-proto/SquareRoot.h"
 //
-//#include "Blank.h"
-//#include "Constant.h"
-//#include "SquareRootDefinition.h"
-//#include "Product.h"
-//#include "Negate.h"
-//#include "Natural.h"
+//#include "cas-proto/Blank.h"
+//#include "cas-proto/Constant.h"
+//#include "cas-proto/SquareRootDefinition.h"
+//#include "cas-proto/Product.h"
+//#include "cas-proto/Negate.h"
+//#include "cas-proto/Natural.h"
 //
 //
 //
@@ -13,12 +13,12 @@
 //
 //
 //
-//SquareRoot& SquareRoot::Create()
+//CAS_PROTO_API SquareRoot& SquareRoot::Create()
 //{
 //    return Create(Blank::Create());
 //}
 //
-//SquareRoot& SquareRoot::Create(const ExpressionBase& radicand)
+//CAS_PROTO_API SquareRoot& SquareRoot::Create(const ExpressionBase& radicand)
 //{
 //    const ExpressionBase* arguments[1];
 //
@@ -27,28 +27,28 @@
 //    return *(new SquareRoot(arguments));
 //}
 //
-//SquareRoot::SquareRoot(const ExpressionBase** arguments)
+//CAS_PROTO_API SquareRoot::SquareRoot(const ExpressionBase** arguments)
 //    : UnaryOperator(symbol, arguments)
 //{}
 //
-//const ExpressionBase& SquareRoot::getRadicand() const
+//CAS_PROTO_API const ExpressionBase& SquareRoot::getRadicand() const
 //{
 //    return get();
 //}
 //
-//const void SquareRoot::bindRadicand(const ExpressionBase& radicand)
+//CAS_PROTO_API const void SquareRoot::bindRadicand(const ExpressionBase& radicand)
 //{
 //    bind(radicand);
 //}
 //
-//Quotient& SquareRoot::Deriv(const Variable& variable) const
+//CAS_PROTO_API Quotient& SquareRoot::Deriv(const Variable& variable) const
 //{
 //    // 1/2 * sqrt(variable)
 //    assert(false);
 //    throw 0;
 //}
 //
-//ExpressionBase& SquareRoot::Simplify() const
+//CAS_PROTO_API ExpressionBase& SquareRoot::Simplify() const
 //{
 //    ExpressionBase& R = get().Simplify();
 //

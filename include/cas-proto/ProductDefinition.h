@@ -12,13 +12,13 @@ class ProductDefinition : public FunctionDefinition {
 
 public:
 
-    static ProductDefinition& getInstance();
+    CAS_PROTO_API static ProductDefinition& getInstance();
 
 private:
 
-    ProductDefinition();
+    CAS_PROTO_API ProductDefinition();
 
-    ProductDefinition(const ProductDefinition&); // not implemented
+    ProductDefinition(const ProductDefinition&);              // not implemented
     ProductDefinition& operator = (const ProductDefinition&); // not implemented
 
 };

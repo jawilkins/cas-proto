@@ -12,14 +12,14 @@ class NegateDefinition : public FunctionDefinition {
 
 public:
 
-    static NegateDefinition& getInstance();
+    CAS_PROTO_API static NegateDefinition& getInstance();
 
 private:
 
-    NegateDefinition();
+    CAS_PROTO_API NegateDefinition();
 
-    NegateDefinition(const NegateDefinition&);
-    NegateDefinition& operator = (const NegateDefinition&);
+    NegateDefinition(const NegateDefinition&);            // not implemented
+    NegateDefinition& operator=(const NegateDefinition&); // not implemented
 
 };
 
