@@ -1,6 +1,10 @@
 #pragma once
 #ifndef SquareRoot_h
 #define SquareRoot_h
+
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
 //
 //#ifndef UnaryOperator_h
 //#include "UnaryOperator.h"

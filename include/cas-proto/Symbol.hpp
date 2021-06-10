@@ -2,6 +2,10 @@
 #ifndef Symbol_hpp
 #define Symbol_hpp
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #include "Symbol.h"
 
 #include <cassert>

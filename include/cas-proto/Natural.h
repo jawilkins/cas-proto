@@ -2,6 +2,10 @@
 #ifndef Natural_h
 #define Natural_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef Constant_h
 #include "Constant.h"
 #endif

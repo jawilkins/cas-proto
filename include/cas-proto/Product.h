@@ -2,6 +2,10 @@
 #ifndef Product_h
 #define Product_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef Sum_h
 #include "Sum.h"
 #endif

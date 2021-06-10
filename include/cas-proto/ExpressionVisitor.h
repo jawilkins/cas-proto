@@ -1,6 +1,10 @@
 #pragma once
 #ifndef ExpressionVisitor_h
 #define ExpressionVisitor_h
+
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
 //
 ////#ifndef Blank_h
 ////#include "Blank.h"

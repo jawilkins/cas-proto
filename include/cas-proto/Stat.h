@@ -2,6 +2,10 @@
 #ifndef Stat_h
 #define Stat_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #include "api.h"
 
 #include <string>

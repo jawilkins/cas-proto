@@ -2,6 +2,10 @@
 #ifndef BinaryOperator_h
 #define BinaryOperator_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef Function_h
 #include "Function.h"
 #endif

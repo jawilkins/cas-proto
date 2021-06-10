@@ -2,6 +2,10 @@
 #ifndef ProductDefinition_h
 #define ProductDefinition_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef FunctionDefinition_h
 #include "FunctionDefinition.h"
 #endif

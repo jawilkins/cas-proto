@@ -1,7 +1,11 @@
+#pragma once
 #ifndef DifferenceDefinition_h
 #define DifferenceDefinition_h
 
-#pragma once
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef FunctionDefinition_h
 #include "FunctionDefinition.h"
 #endif

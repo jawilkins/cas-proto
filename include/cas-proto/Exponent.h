@@ -2,6 +2,10 @@
 #ifndef Exponent_h
 #define Exponent_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef Product_h
 #include "Product.h"
 #endif

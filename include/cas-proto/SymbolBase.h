@@ -1,6 +1,10 @@
 #ifndef SymbolBase_h
 #define SymbolBase_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef Object_h
 #include "Object.h"
 #endif

@@ -2,7 +2,9 @@
 #ifndef api_h
 #define api_h
 
-
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
 
 #ifdef _WIN32
 # if defined(CAS_PROTO_API_EXPORT) && defined(CAS_PROTO_API_IMPORT)

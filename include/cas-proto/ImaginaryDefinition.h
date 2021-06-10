@@ -2,6 +2,10 @@
 #ifndef ImaginaryDefinition_h
 #define ImaginaryDefinition_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef ConstantDefinition_h
 #include "ConstantDefinition.h"
 #endif

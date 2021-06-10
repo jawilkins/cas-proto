@@ -1,6 +1,10 @@
 #ifndef UnaryOperator_h
 #define UnaryOperator_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef Function_h
 #include "Function.h"
 #endif

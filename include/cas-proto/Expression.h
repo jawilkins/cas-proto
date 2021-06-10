@@ -2,6 +2,10 @@
 #ifndef Expression_h
 #define Expression_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef ExpressionBase_h
 #include "ExpressionBase.h"
 #endif

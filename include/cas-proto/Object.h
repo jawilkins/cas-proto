@@ -2,6 +2,10 @@
 #ifndef Object_h
 #define Object_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef Stat_h
 #include "Stat.h"
 #endif

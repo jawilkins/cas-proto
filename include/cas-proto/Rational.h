@@ -2,6 +2,10 @@
 #ifndef Rational_h
 #define Rational_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef Natural_h
 #include "Natural.h"
 #endif

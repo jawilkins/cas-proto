@@ -2,6 +2,10 @@
 #ifndef NcBinaryOperator_h
 #define NcBinaryOperator_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef BinaryOperator_h
 #include "BinaryOperator.h"
 #endif

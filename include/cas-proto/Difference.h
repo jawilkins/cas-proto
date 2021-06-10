@@ -2,6 +2,10 @@
 #ifndef Difference_h
 #define Difference_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 #ifndef NcBinaryOperator_h
 #include "NcBinaryOperator.h"
 #endif

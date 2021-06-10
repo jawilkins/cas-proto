@@ -2,6 +2,10 @@
 #ifndef Ref_h
 #define Ref_h
 
+#ifndef __cplusplus
+#error This is a C++ header file.
+#endif
+
 template <class T>
 class Ref {
 
