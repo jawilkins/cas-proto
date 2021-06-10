@@ -9,7 +9,7 @@ project(cas-proto
     HOMEPAGE_URL "https://github.com/jawilkins/cas-proto"
 )
 
-set(LIBRARY ${LIBRARY_PREFIX}${PROJECT_NAME})
+set(LIBRARY ${MY_LIBRARY_PREFIX}${PROJECT_NAME})
 
 list(APPEND HEADERS
     include/${PROJECT_NAME}/api.h
@@ -108,35 +108,37 @@ list(APPEND SOURCES
     src/ZeroDefinition.cpp
 )
 
+
+
 add_library(${LIBRARY} ${HEADERS} ${SOURCES})
 
-set_target_properties(${LIBRARY} PROPERTIES PUBLIC_HEADER "${HEADERS}")
-set_target_properties(${LIBRARY} PROPERTIES DEBUG_POSTFIX d)
-
-target_include_directories(${LIBRARY} PUBLIC
-    $<INSTALL_INTERFACE:\${BUILD_TYPE}/include>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-)
-
-target_compile_definitions(${LIBRARY} PUBLIC -DWITH_CAS_PROTO)
+target_compile_definitions(${LIBRARY} INTERFACE -DWITH_CAS_PROTO)
 
 if (BUILD_SHARED_LIBS)
-    set(LIBRARY_TYPE Shared)
-    target_compile_definitions(${LIBRARY} PRIVATE -DCAS_PROTO_BUILD_DLL)
+    set(LIBRARY_TYPE "Shared")
+
+    if (WIN32)
+        target_compile_definitions(${LIBRARY} PRIVATE   -DCAS_PROTO_API_EXPORT)
+        target_compile_definitions(${LIBRARY} INTERFACE -DCAS_PROTO_API_IMPORT)
+    endif()
 else()
-    set(LIBRARY_TYPE Static)
+    set(LIBRARY_TYPE "Static")
 endif()
+
+set_target_properties(${LIBRARY} PROPERTIES PUBLIC_HEADER "${HEADERS}")
+
+target_include_directories(${LIBRARY} PUBLIC
+    $<INSTALL_INTERFACE:include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)
 
 install(TARGETS ${LIBRARY}
     ARCHIVE       DESTINATION ${LIBRARY_TYPE}/\${BUILD_TYPE}/lib
     RUNTIME       DESTINATION ${LIBRARY_TYPE}/\${BUILD_TYPE}/bin
     LIBRARY       DESTINATION ${LIBRARY_TYPE}/\${BUILD_TYPE}/lib
-    PUBLIC_HEADER DESTINATION ${LIBRARY_TYPE}/\${BUILD_TYPE}/include/${PROJECT_NAME}
+    PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
 )
 
 
-
-
-list(APPEND DEPENDENCIES ${LIBRARY})
 
 add_subdirectory(examples)

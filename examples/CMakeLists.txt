@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-macro(add_example NAME)
+function(add_example NAME)
     project(${LIBRARY}-${NAME}
         DESCRIPTION "Example Program for a Computer Algebra System Prototype in C++ (${NAME})"
         VERSION ${CAS_PROTO_VERSION}
@@ -9,10 +9,9 @@ macro(add_example NAME)
     )
 
     add_executable         (        ${PROJECT_NAME} ${NAME}.cpp)
-    target_link_libraries  (        ${PROJECT_NAME} ${DEPENDENCIES})
-    set_target_properties  (        ${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
+    target_link_libraries  (        ${PROJECT_NAME} ${LIBRARY})
     install                (TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${LIBRARY_TYPE}/\${BUILD_TYPE}/bin)
-endmacro()
+endfunction()
 
 list(APPEND EXAMPLES
     quadratic-formula
