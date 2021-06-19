@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Operator Lemmas</title>
+<script>
+MathJax = {
+  loader: {load: ['input/asciimath', 'output/chtml', 'ui/menu']},
+  asciimath: {
+    fixphi: true,              // true for TeX mapping, false for unicode mapping
+    displaystyle: true,        // true for displaystyle typesetting, false for in-line
+    decimalsign: '.'           // character to use for decimal separator
+  }
+}
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
+</script>
+<body>
+`{:
+(bb"Definition",         quad tt"C++"\ bb"Operator",         quad bb"Lemma",           quad bb"Paradigm"),(,,,),
+
+(sf"HoldPattern",        quad tt"operator+(x)",              quad tt"+x",              quad {(+ x),(o+ x quad oplus x):}),(,,,),
+(sf"Plus",               quad tt"operator+(x, y)",           quad tt"x + y",           quad {(x + y),(x o+ y quad x oplus y):}),(,,,),
+(sf"Minus",              quad tt"operator-(x)",              quad tt"-x",              quad {(- x),(\~x),(tilde x),(neg x quad not x),(bar x quad overline x),(x^(-1)),(1/x),(1//x):}),(,,,),
+(sf"Subtract",           quad tt"operator-(x, y)",           quad tt"x - y",           quad {(x - y),(x \\ y quad x backslash y),(x setminus y):}),(,,,),
+(sf"Hold",               quad tt"operator&amp;(x)",          quad tt"&amp;x",          quad {&amp;x:}),(,,,),
+(sf"Evaluate",           quad tt"operator*(x)",              quad tt"*x",              quad {(** x quad ast x),(* x quad cdot x),(*** x quad star x),(xx x quad times x),(ox x quad otimes x),(o. x quad odot x):}),(,,,),
+(sf"Times",              quad tt"operator*(x, y)",           quad tt"x * y",           quad {(x ** y quad x ast y),(x * y quad x cdot y),(x *** y quad x star y),(x xx y quad x times y),(x\ .\ y),(xy),(x ox y quad x otimes y),(x o. y quad x odot y):}),(,,,),
+(sf"Divide",             quad tt"operator/(x, y)",           quad tt"x / y",           quad {(x \/ y),(x -: y quad x div y),(x / y quad frac{x}{y}):}),(,,,),
+(sf"Part",               quad tt"x.operator[](y)",           quad tt"x[y]",            quad {(x[y]),(x[[y]]),(x(y)),(x_y):}),(,,,),
+(sf"Equal",              quad tt"operator==(x, y)",          quad tt"x == y",          quad {(x == y),(x = y),(x approx y quad x ~~ y), (x ~= y quad x cong y),(x leftrightarrow y),(x iff y quad x Leftrightarrow y quad x hArr y):}),(,,,),
+(sf"Unequal",            quad tt"operator!=(x, y)",          quad tt"x != y",          quad {(x\ "!="\ y),(x != y quad x ne y),(x &lt;&gt; y),(x\ "/="\ y),(x \~\= y):}),(,,,),
+(sf"Less",               quad tt"operator&lt;(x, y)",        quad tt"x &lt; y",        quad {(x lt y),(x prec y),(x sub y),(x in y):}),(,,,),
+(sf"LessEqual",          quad tt"operator&lt;=(x, y)",       quad tt"x &lt;= y",       quad {(x \&lt;\= y),(x le y),(x preceq y),(x sube y),(x larr y quad x leftarrow y),(x lArr y quad x  Leftarrow y):}),(,,,),
+(sf"Greater",            quad tt"operator&gt;(x, y)",        quad tt"x &gt; y",        quad {(x gt y),(x succ y),(x sup y):}),(,,,),
+(sf"GreaterEqual",       quad tt"operator&gt;=(x, y)",       quad tt"x &gt;= y",       quad {(x \&gt;\= y),(x ge y),(x succeq y),(x supe y):}),(,,,),
+(sf"And",                quad tt"operator&amp;&amp;(x, y)",  quad tt"x &amp;&amp; y",  quad {(x\ &amp;&amp;\ y),(x\ "and"\ y),(x ^^ y),(x nn y),(x |&gt;&lt;| y quad x bowtie y):}),(,,,),
+(sf"Or",                 quad tt"operator||(x, y)",          quad tt"x || y",          quad {(x || y),(x\ "or"\ y),(x vv y),(x uu y):}),(,,,),
+(sf"Not",                quad tt"operator!(x)",              quad tt"!x",              quad {(! x),("not"\ x),(neg x quad not x),(bar x quad overline x),(\~x),(tilde x):}),(,,,),
+(sf"BitAnd",             quad tt"operator&amp;(x, y)",       quad tt"x &amp; y",       quad {(x\ &amp;\ y),(x\ "bitand"\ y),(x ^^ y),(x nn y):}),(,,,),
+(sf"BitOr",              quad tt"operator|(x, y)",           quad tt"x | y",           quad {(x | y),(x\ "bitor"\ y),(x vv y),(x uu y),(x\ "or"\ y):}),(,,,),
+(sf"BitXor",             quad tt"operator^(x, y)",           quad tt"x ^ y",           quad {(x\ "^"\ y),(x\ "xor"\ y):}),(,,,),
+(sf"BitNot",             quad tt"operator"\~tt"(x)",         quad \~tt"x",             quad {(\~x),("compl"\ x),(tilde x),(neg x quad not x),(bar x quad overline x),(! x):}),(,,,),
+(sf"Mod",                quad tt"operator%(x, y)",           quad tt"%",               quad {(%),("mod"),("rem"):}),(,,,),
+(sf"Set",                quad tt"operator=(x, y)",	         quad tt"x = y",           quad {(x = y),(x -= y quad x equiv y),(x\ ":="\ y),(x\ "::="\ y):}),(,,,),
+(sf"CompoundExpression", quad tt"operator,(x, y)",           quad tt"x, y",            quad {(x","\ y),(x";"\ y):}),(,,,),
+(sf"BitShiftRight",      quad tt"operator&gt;&gt;(x, y)",    quad tt"x &gt;&gt; y",    quad {(x \&gt;\&gt; y),(x -&gt; y quad x rarr y quad x to y quad x rightarrow y),(x =&gt; y quad x implies y quad x Rightarrow y quad x rArr y),(x rightarrowtail y quad x &gt;-&gt; y),(x mapsto y quad x |-&gt; y),(x |-- y quad x vdash y),(x |== y quad x models y),(x\ .\ y):}),(,,,),
+(sf"BitShiftLeft",       quad tt"operator&lt;&lt;(x, y)",    quad tt"x &lt;&lt; y",    quad {(x \&lt;\&lt; y),(x larr y quad x leftarrow y),(x lArr y quad x  Leftarrow y),(x\ $\ y):})
+:}`
+</body>
+</html>
